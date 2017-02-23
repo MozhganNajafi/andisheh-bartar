@@ -1,0 +1,22 @@
+{
+  "name": "andisheh-bartar",
+  "version": "1.0.0",
+  "description": "a new website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MozhganNajafi/andisheh-bartar.git"
+  },
+  "keywords": [
+    "module"
+  ],
+  "author": "Mozhgan Najafi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MozhganNajafi/andisheh-bartar/issues"
+  },
+  "homepage": "https://github.com/MozhganNajafi/andisheh-bartar#readme"
+}
