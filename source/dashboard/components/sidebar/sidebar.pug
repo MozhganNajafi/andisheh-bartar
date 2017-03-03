@@ -1,0 +1,40 @@
+.row.expanded.sidebar-row
+  .small-12.large-2.columns.no-padding#sidebar-column(ng-class="{'large-1': !sidebar.expanded, 'large-2': sidebar.expanded}")
+    aside#sidebar
+      .sidebar-container(ng-class="sidebar.expanded ? '' : 'is-collapsed'")
+        header.sidebar-header
+          .sidebar-logo
+            img.center-block.padding-small-top.padding-small-bottom(src="assets/images/dashboard/Logo.png", ng-if="!sidebar.expanded")
+            img.center-block.padding-small-top.padding-small-bottom(src="assets/images/dashboard/LogoFull.png", ng-if="sidebar.expanded")
+            hr
+          .sidebar-avatar.row
+            div(ng-if="!sidebar.expanded")
+              img.center-block(src="assets/images/avatar/fake.png")
+            div(ng-if="sidebar.expanded")
+              .small-4.small-offset-2.column.no-padding
+                img(src="assets/images/avatar/fake.png")
+              .small-6.column.no-padding.sidebar-userinfo
+                p {{sidebar.name}}
+                a(href="#")
+                  small {{sidebar.role}}
+                  i.fa.fa-caret-down
+          .sidebar-notifications.center-block(ng-if="sidebar.expanded")
+            a(href="#")
+              i.fa.fa-envelope.margin-large
+            a(href="#")
+              i.fa.fa-home.has-badge.margin-large
+                span.badge.warning.text-white ۵
+            a(href="#")
+              i.fa.fa-bell.has-badge.margin-large
+                span.badge.primary.text-white ۱۶
+        nav(role='navigation')
+          ul.no-bullet
+            li(ng-repeat="item in sidebar.menuItems")
+              a.sidebar-menuitem.display-block.padding-large(href='{{item.link}}')
+                i.fa.fa-fw.font-medium.valign-middle(class="{{item.icon}}")
+                span(ng-show="sidebar.expanded") {{item.title}}
+      .sidebar-toggler
+          a(href="javascript:void(0)", ng-click="sidebar.expanded = !sidebar.expanded")
+            i.sidebar-icon.fa.fa-bars
+  .small-12.large-10.columns.no-padding#main-column(ng-class="{'large-11': !sidebar.expanded, 'large-10': sidebar.expanded}")
+    ng-transclude

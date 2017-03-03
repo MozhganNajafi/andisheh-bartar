@@ -1,0 +1,39 @@
+//*****************************************************************************/
+// SGS, Sana Gostar Spadana
+// http://www.sgs.ir
+// Copyright (c) 2016 SGS
+// Released under the MIT License 
+// -----------------------------------------------------------------------------
+// Mixins which help create complex css rules
+//*****************************************************************************/
+
+=font-face($font-path, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-stratch: normal)
+  @font-face
+    font-family: '#{$font-family}'
+    src: url('/assets/fonts/#{$font-path}/#{$font-filename}.eot')
+    src: url('/assets/fonts/#{$font-path}/#{$font-filename}.eot?') format('eot'), url('/assets/fonts/#{$font-path}/#{$font-filename}.woff2') format('woff2'), url('/assets/fonts/#{$font-path}/#{$font-filename}.woff') format('woff'), url('/assets/fonts/#{$font-path}/#{$font-filename}.ttf') format('truetype')
+
+    font-weight: $font-weight
+    font-style: $font-style
+    font-stratch: $font-stratch
+
+=build-color-palette
+  @each $name, $color in $color-palette
+    .text-#{$name}
+      color: $color !important
+    .background-#{$name}
+      background-color: $color !important
+    .border-color-#{$name}
+      border-color: $color !important
+    a.link-#{$name}
+      color: $color
+      &:hover, &:focus, &:active
+        color: darken($color, 15%)
+    a.hover-#{$name}
+      &:hover, &:focus, &:active
+        color: darken($color, 15%)!important
+    a.background-hover-#{$name}
+      &:hover, &:focus, &:active
+        background-color: $color
+        color: white!important
+    

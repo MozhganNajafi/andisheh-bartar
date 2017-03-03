@@ -1,0 +1,10 @@
+div
+  .topbar.padding-xxxlarge.background-white
+    .row.expanded
+      .small-12.large-6.columns
+        div(ncy-breadcrumb)
+      .small-12.large-6.columns
+        ul.menu.float-left
+          li.padding-small-left(ng-repeat="action in $ctrl.actions")
+            a.button.primary(ng-if="action.type=='link'", href="{{action.href}}", ng-class="action.class") {{action.title}}
+            a.button.primary(ng-if="action.type=='button'", ng-click="action['click']()", ng-class="action.class") {{action.title}}
