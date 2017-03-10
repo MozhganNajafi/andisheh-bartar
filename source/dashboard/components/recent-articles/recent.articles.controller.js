@@ -4,9 +4,9 @@
 
     angular
         .module('DashboardApplication')
-        .controller('ProfileController', [ProfileController]);
+        .controller('RecentArticlesController', [RecentArticlesController]);
 
-    function ProfileController() {
+    function RecentArticlesController() {
 
         var vm = this;
 
