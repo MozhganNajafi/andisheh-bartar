@@ -1,18 +1,16 @@
 +(function () {
 
-    'use strict';
+  'use strict';
 
-    angular
+  angular
         .module('DashboardApplication')
         .controller('RecentArticlesController', [RecentArticlesController]);
 
-    function RecentArticlesController() {
+  function RecentArticlesController() {
 
-        var vm = this;
+    var vm = this;
 
-
-
-    }
+  }
 
 
 
