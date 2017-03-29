@@ -5,12 +5,12 @@
 
     angular
         .module('DashboardApplication')
-        .component('profile', {
+        .component('link', {
 
-            templateUrl: 'dashboard/components/profile/profile.html',
+            templateUrl: 'dashboard/components/link/link.html',
             scope: true,
-            controller: 'ProfileController',
-            controllerAs: 'ProfileViewModel',
+            controller: 'LinkController',
+            controllerAs: 'LinkViewModel',
 
         })
 

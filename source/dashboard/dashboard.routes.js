@@ -47,24 +47,24 @@
           }]
         },
         ncyBreadcrumb: {
-          label: 'سرنخ های عمومی'
+          label: 'خانه'
         }
       })
-      .state('dashboard.lead', {
-        url: '/lead',
-        templateUrl: 'dashboard/pages/lead/lead.html',
-        controller: 'LeadController',
-        controllerAs: 'LeadViewModel',
+      .state('login', {
+        url: '/login',
+        templateUrl: 'dashboard/pages/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'LoginViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/lead/lead.controller.js',
+              '/dashboard/pages/login/login.controller.js',
               '/assets/stylesheets/foundation.css',
             ]);
           }]
         },
         ncyBreadcrumb: {
-          label: 'سرنخ های من'
+          label: 'ورود'
         }
       })
       .state('dashboard.chance', {

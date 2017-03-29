@@ -4,9 +4,9 @@
 
     angular
         .module('DashboardApplication')
-        .controller('ProfileController', [ProfileController]);
+        .controller('LinkController', [LinkController]);
 
-    function ProfileController() {
+    function LinkController() {
 
         var vm = this;
 
