@@ -1,2 +1,5 @@
 .home
-    p hiiiiiiiiiiiii
+    .row
+        div(ng-repeat='news in HomeViewModel.news')
+            h5 {{news.title}}
+            p {{news.content}}

@@ -1,7 +1,23 @@
 .login
     .row
         .medium-6.medium-centered.large-4.large-centered.columns
-            h5 test
+            form(name="loginForm", novalidate, autocomplete="off", ng-if="!login.loggedIn && !login.loggingIn")
+                .row.column
+                    h4.login-title ورود به پنل مدیریت
+                    label(ng-class="{'is-invalid-label': loginForm.email.$invalid && !loginForm.email.$pristine }")
+                        | ایمیل
+                        input(type="email", name="email", ng-model="login.email", ng-class="{'is-invalid-input': loginForm.email.$invalid && !loginForm.email.$pristine }", ng-required="true")
+                    label(ng-class="{'is-invalid-label': loginForm.password.$invalid && !loginForm.password.$pristine }")
+                        | رمز عبور
+                        input(type="password", name="password", ng-model="login.password", ng-minlength="8", ng-class="{'is-invalid-input': loginForm.password.$invalid && !loginForm.password.$pristine }", ng-required="true")
+                    input(type="checkbox")
+                    label مرا به خاطر بسپار
+                    p.text-center
+                        button.button.login-action(type="submit", ng-click="login.login(login.email, login.password)", ng-disabled="loginForm.$invalid") ورود
+                    div.login-errors
+                        p(ng-if="loginForm.email.$invalid && !loginForm.email.$pristine")
+                            i.fa.fa-exclamation-triangle
+                            span  ایمیل صحیح نیست
         
 
     

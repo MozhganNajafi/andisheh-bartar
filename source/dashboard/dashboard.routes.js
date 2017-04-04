@@ -60,6 +60,7 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/login/login.controller.js',
               '/assets/stylesheets/foundation.css',
+              '/dashboard/pages/login/login.css'
             ]);
           }]
         },
