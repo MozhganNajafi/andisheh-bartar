@@ -21,7 +21,7 @@
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              
+
               '/assets/stylesheets/foundation.css',
               '/assets/stylesheets/dashboard.css',
               '/assets/stylesheets/fontawesome.css'
@@ -39,9 +39,9 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/home/home.controller.js',
-              '/assets/stylesheets/fontawesome.css',
-              '/assets/stylesheets/foundation.css',
-              '/assets/stylesheets/dashboard.css',
+              // '/assets/stylesheets/fontawesome.css',
+              // '/assets/stylesheets/foundation.css',
+              // '/assets/stylesheets/dashboard.css',
               '/dashboard/pages/home/home.css'
             ]);
           }]
@@ -68,57 +68,38 @@
           label: 'ورود'
         }
       })
-      .state('dashboard.chance', {
-        url: '/chance',
-        templateUrl: 'dashboard/pages/chance/chance.html',
-        controller: 'ChanceController',
-        controllerAs: 'ChanceViewModel',
+      .state('dashboard.about', {
+        url: '/about',
+        templateUrl: 'dashboard/pages/about-us/aboutus.html',
+        controller: 'AboutUsController',
+        controllerAs: 'AboutUsViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-
+              '/dashboard/pages/about-us/aboutus.controller.js',
+              '/dashboard/pages/about-us/aboutus.css'
             ]);
           }]
         },
         ncyBreadcrumb: {
-          label: 'فرصت های من'
+          label: 'درباره ما'
         }
       })
-      .state('dashboard.addlead', {
-        url: '/addlead',
-        templateUrl: 'dashboard/pages/lead/add/add.html',
-        controller: 'AddController',
-        controllerAs: 'AddViewModel',
+      .state('dashboard.contact', {
+        url: '/contact',
+        templateUrl: 'dashboard/pages/contact-us/contactus.html',
+        controller: 'ContactUsController',
+        controllerAs: 'ContactUsViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
-            return $ocLazyLoad.load({
-              files: [
-                '/dashboard/pages/lead/add/add.controller.js',
-                '/dashboard/pages/lead/lead.rest.service.js',
-                '/bower_components/angular-wizard/dist/angular-wizard.min.js',
-                '/bower_components/angular-wizard/dist/angular-wizard.min.css',
-                '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js',
-                '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css',
-                '/bower_components/api-check/dist/api-check.js',
-                '/bower_components/angular-ui-mask/dist/mask.js',
-                '/bower_components/angular-messages/angular-messages.js',
-                '/bower_components/angular-formly/dist/formly.js',
-                '/bower_components/angular-formly-templates-foundation/dist/angular-formly-templates-foundation.js',
-                '/bower_components/formviewer/dist/js/formviewer.js',
-                // '/bower_components/datagrid/dist/datagrid.js',
-                // '/bower_components/datagrid/dist/datagrid.css',
-                '/bower_components/formviewer/dist/css/formviewer.css',
-                '/assets/stylesheets/fontawesome.css',
-                '/assets/stylesheets/foundation.css',
-                '/assets/stylesheets/dashboard.css',
-                '/dashboard/pages/lead/add/add.css'
-              ],
-              serie: true
-            });
+            return $ocLazyLoad.load([
+              '/dashboard/pages/contact-us/contactus.controller.js',
+              '/dashboard/pages/contact-us/contactus.css'
+            ]);
           }]
         },
         ncyBreadcrumb: {
-          label: 'سرنخ جدید'
+          label: 'تماس با ما'
         }
       });
 

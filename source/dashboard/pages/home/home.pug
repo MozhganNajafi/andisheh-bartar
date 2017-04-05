@@ -1,5 +1,6 @@
-.home
-    .row
+.padding-xxlarge.margin-xxlarge.home
+  .row.expanded
+    .small-12.columns
         div(ng-repeat='news in HomeViewModel.news')
             h5 {{news.title}}
             p {{news.content}}
