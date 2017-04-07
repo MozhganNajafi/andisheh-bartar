@@ -31,7 +31,7 @@ gulp.task('common.javascripts', function() {
     // paths.src + '/common/common.controller.js',
     paths.src + '/common/configs/**/*.js',
     paths.src + '/common/services/**/*.js',
-    // paths.src + '/common/filters/**/*.js',
+    paths.src + '/common/filters/**/*.js',
     paths.src + '/common/**/*.routes.js'
   ])
   .pipe(sourcemap.init())

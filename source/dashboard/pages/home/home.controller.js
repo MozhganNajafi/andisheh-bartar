@@ -18,8 +18,26 @@
     vm.news = [{
       'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
       'title': 'خبر خوب خبر بد',
-      'creationDatetime': null,
-      'author': 'mozhgan najafi',
+      'creationDatetime': '1395/02/05 05:11',
+      'author': 'عباس مقدسی',
+      'newscategory': null,
+      'newslabels': [],
+      'relatedLinks': []
+    },
+    {
+      'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
+      'title': 'خبر خوب خبر بد',
+      'creationDatetime': '1395/02/05 05:11',
+      'author': 'عباس مقدسی',
+      'newscategory': null,
+      'newslabels': [],
+      'relatedLinks': []
+    },
+    {
+      'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
+      'title': 'خبر خوب خبر بد',
+      'creationDatetime': '1395/02/05 05:11',
+      'author': 'عباس مقدسی',
       'newscategory': null,
       'newslabels': [],
       'relatedLinks': []
@@ -28,7 +46,7 @@
       'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
       'title': 'خبر خوب خبر بد',
       'creationDatetime': null,
-      'author': 'mozhgan najafi',
+      'author': 'عباس مقدسی',
       'newscategory': null,
       'newslabels': [],
       'relatedLinks': []
@@ -37,25 +55,7 @@
       'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
       'title': 'خبر خوب خبر بد',
       'creationDatetime': null,
-      'author': 'mozhgan najafi',
-      'newscategory': null,
-      'newslabels': [],
-      'relatedLinks': []
-    },
-    {
-      'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
-      'title': 'خبر خوب خبر بد',
-      'creationDatetime': null,
-      'author': 'mozhgan najafi',
-      'newscategory': null,
-      'newslabels': [],
-      'relatedLinks': []
-    },
-    {
-      'content': 'Danish Green Card allows you to get the residence permit to look for work or do work in Denmark. The work permit and residency in Denmark under the Green Card Scheme is granted to a candidate, based on his score in point based evaluation system.',
-      'title': 'خبر خوب خبر بد',
-      'creationDatetime': null,
-      'author': 'mozhgan najafi',
+      'author': 'عباس مقدسی',
       'newscategory': null,
       'newslabels': [],
       'relatedLinks': []

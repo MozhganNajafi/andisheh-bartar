@@ -2,5 +2,18 @@
   .row.expanded
     .small-12.columns
         div(ng-repeat='news in HomeViewModel.news')
-            h5 {{news.title}}
-            p {{news.content}}
+          div.news-box
+            .row
+              .small-12.large-6.columns
+                h5 {{news.title}}
+              .small-12.large-6.columns
+                small.float-left {{news.creationDatetime}} {{news.author}}
+              
+            .row
+              .small-12.columns
+                p {{news.content | limit('dffffffffffffffffffxcvn')}}
+
+            .row
+              .small-12.columns
+                button.button.primary(type='button',ng-click='') ادامه مطلب
+
