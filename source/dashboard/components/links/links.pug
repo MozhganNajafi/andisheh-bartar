@@ -1,10 +1,5 @@
 .link
-    .small-12.large-2.columns.no-padding
-        .profile-pic
-            div
-                img.center-block(src='assets/images/avatar/avatar.jpg')
-        .profile-data
-            div
-                h5 نویسنده : عباس مقدمی
-                hr
-                p کارشناس ارشد کنترل  پروژه از دانشگاه اصفهان
+    div(ng-repeat='link in LinkViewModel.links')
+        a(href='link.href')
+            i.fa.fa-arrow-left
+            span {{link.title}}
