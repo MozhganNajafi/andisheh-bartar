@@ -7,7 +7,7 @@
         .module('DashboardApplication')
         .component('link', {
 
-            templateUrl: 'dashboard/components/link/link.html',
+            templateUrl: 'dashboard/components/links/links.html',
             scope: true,
             controller: 'LinkController',
             controllerAs: 'LinkViewModel',
