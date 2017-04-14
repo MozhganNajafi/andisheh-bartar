@@ -103,6 +103,24 @@
           label: 'اخبار'
         }
       })
+      .state('dashboard.archive', {
+        url: '/archive',
+        templateUrl: 'dashboard/pages/archive/archive.html',
+        controller: 'ArchiveController',
+        controllerAs: 'ArchiveViewModel',
+        params: { id: null },
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/archive/archive.controller.js',
+              '/dashboard/pages/archive/archive.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'اخبار'
+        }
+      })
       .state('dashboard.contact', {
         url: '/contact',
         templateUrl: 'dashboard/pages/contact-us/contactus.html',
