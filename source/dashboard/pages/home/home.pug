@@ -4,8 +4,9 @@
         div(ng-repeat='news in HomeViewModel.news')
           div.news-box
             .row
-              .small-12.large-6.columns
-                h5 {{news.title}}
+              .small-12.large-6.columns       
+                h5
+                  i.fa.fa-check-square(aria-hidden=true) {{news.title}}
               .small-12.large-6.columns
                 small.float-left {{news.creationDatetime}} {{news.author}}
               

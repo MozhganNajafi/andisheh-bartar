@@ -5,7 +5,7 @@
 
     angular
         .module('DashboardApplication')
-        .component('link', {
+        .component('otherLinks', {
 
             templateUrl: 'dashboard/components/links/links.html',
             scope: true,
