@@ -3,12 +3,14 @@
   'use strict';
 
   angular
-        .module('DashboardApplication')
-        .controller('ViewerStatisticsController', [ViewerStatisticsController]);
+    .module('DashboardApplication')
+    .controller('ViewerStatisticsController', [ViewerStatisticsController]);
 
   function ViewerStatisticsController() {
 
     var vm = this;
+
+    
 
   }
 

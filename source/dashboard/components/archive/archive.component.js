@@ -8,8 +8,8 @@
 
           templateUrl: 'dashboard/components/archive/archive.html',
           scope: true,
-          controller: 'archiveController',
-          controllerAs: 'archiveViewModel',
+          controller: 'ArchiveController',
+          controllerAs: 'ArchiveViewModel',
 
         });
 

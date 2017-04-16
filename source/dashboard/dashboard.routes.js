@@ -24,7 +24,7 @@
 
               '/assets/stylesheets/foundation.css',
               '/assets/stylesheets/dashboard.css',
-              '/assets/stylesheets/fontawesome.css'
+              '/assets/stylesheets/fontawesome.css',
             ]);
           }]
         }
@@ -136,6 +136,23 @@
         },
         ncyBreadcrumb: {
           label: 'تماس با ما'
+        }
+      })
+      .state('dashboard.admin', {
+        url: '/admin',
+        templateUrl: 'dashboard/pages/admin/admin.html',
+        controller: 'AdminController',
+        controllerAs: 'AdminViewModel',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/admin.controller.js',
+              '/dashboard/pages/admin/admin.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'پنل مدیریت'
         }
       });
 

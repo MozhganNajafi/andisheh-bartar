@@ -1,18 +1,18 @@
 +(function () {
 
 
-    'use strict';
+  'use strict';
 
-    angular
+  angular
         .module('DashboardApplication')
         .component('otherLinks', {
 
-            templateUrl: 'dashboard/components/links/links.html',
-            scope: true,
-            controller: 'LinkController',
-            controllerAs: 'LinkViewModel',
+          templateUrl: 'dashboard/components/links/links.html',
+          scope: true,
+          controller: 'LinkController',
+          controllerAs: 'LinkViewModel',
 
-        })
+        });
 
 
 
