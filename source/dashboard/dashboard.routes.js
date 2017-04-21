@@ -190,14 +190,14 @@
       })
       .state('admin.link', {
         url: '/link',
-        templateUrl: 'dashboard/pages/link/link.html',
+        templateUrl: 'dashboard/pages/admin/link/link.html',
         controller: 'LinkController',
         controllerAs: 'LinkViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/link/link.controller.js',
-              '/dashboard/pages/link/link.css'
+              '/dashboard/pages/admin/link/link.controller.js',
+              '/dashboard/pages/admin/link/link.css'
             ]);
           }]
         },
