@@ -5,7 +5,8 @@
   angular.module('CommonApplication', [
     'ui.router',
     'oc.lazyLoad',
-    'restangular'
+    'restangular',
+    'tinymce'
   ]);
 
 

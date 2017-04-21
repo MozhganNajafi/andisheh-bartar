@@ -4,12 +4,11 @@
 
   angular
     .module('DashboardApplication')
-    .controller('NewsController', [ NewsController ]);
+    .controller('ProfileController', [ ProfileController ]);
 
-  function NewsController() {
+  function ProfileController() {
 
     var vm = this;
-    vm.redirect = redirect;
 
 
 

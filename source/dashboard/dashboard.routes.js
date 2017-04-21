@@ -118,7 +118,7 @@
           }]
         },
         ncyBreadcrumb: {
-          label: 'اخبار'
+          label: 'آرشیو'
         }
       })
       .state('dashboard.contact', {
@@ -140,14 +140,30 @@
       })
       .state('admin', {
         url: '/admin',
+        abstract: true,
         templateUrl: 'dashboard/pages/admin/admin.html',
-        controller: 'AdminController',
-        controllerAs: 'AdminViewModel',
+        // controller: 'AdminController',
+        // controllerAs: 'AdminViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/admin/admin.controller.js',
+              '/assets/stylesheets/foundation.css',
+              '/assets/stylesheets/fontawesome.css',
               '/dashboard/pages/admin/admin.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'پنل مدیریت'
+        }
+      })
+      .state('admin.index', {
+        url: '/index',
+        templateUrl: 'dashboard/pages/admin/index/index.html',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              
             ]);
           }]
         },
@@ -157,31 +173,31 @@
       })
       .state('admin.content', {
         url: '/content',
-        templateUrl: 'dashboard/pages/admin/admin.html',
-        controller: 'AdminController',
-        controllerAs: 'AdminViewModel',
+        templateUrl: 'dashboard/pages/admin/content/content.html',
+        controller: 'ContentController',
+        controllerAs: 'ContentViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/admin/admin.controller.js',
-              '/dashboard/pages/admin/admin.css'
+              '/dashboard/pages/admin/content/content.controller.js',
+              '/dashboard/pages/admin/content/content.css'
             ]);
           }]
         },
         ncyBreadcrumb: {
-          label: 'مدیریت مطالب'
+          label: 'مدیریت مطhhhالب'
         }
       })
       .state('admin.link', {
         url: '/link',
         templateUrl: 'dashboard/pages/link/link.html',
-        controller: 'AdminController',
-        controllerAs: 'AdminViewModel',
+        controller: 'LinkController',
+        controllerAs: 'LinkViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/admin/admin.controller.js',
-              '/dashboard/pages/admin/admin.css'
+              '/dashboard/pages/link/link.controller.js',
+              '/dashboard/pages/link/link.css'
             ]);
           }]
         },
@@ -192,13 +208,13 @@
       .state('admin.profile', {
         url: '/profile',
         templateUrl: 'dashboard/pages/profile/profile.html',
-        controller: 'AdminController',
-        controllerAs: 'AdminViewModel',
+        controller: 'ProfileController',
+        controllerAs: 'ProfileViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/admin/admin.controller.js',
-              '/dashboard/pages/admin/admin.css'
+              '/dashboard/pages/profile/profile.controller.js',
+              '/dashboard/pages/profile/profile.css'
             ]);
           }]
         },

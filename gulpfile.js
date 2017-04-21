@@ -16,6 +16,7 @@ gulp.task('javascripts', function( callback ) {
     'dashboard.javascripts',
     'pages.javascripts',
     'tinymce.themes',
+    'tinymce.plugins',
     callback
   );
 });

@@ -1,24 +1,23 @@
-.margin-xxlarge.admin
-  .row.expanded
-    .small-12.large-2.columns
-
-      h5 پنل مدیریت 
+.admin.row.expanded
+  .small-12.large-3.columns.no-padding
+    h5 پنل مدیریت 
       ul.menu.vertical
         li
-          i.fa.fa-file-text
-            a(href="#/admin/content") مدیریت مطالب
+          a(href="#!/admin/content")
+            i.fa.fa-file-text
+              span مدیریت مطالب
         li
-          i.fa.fa-link
-            a(href="#/admin/link") مدیریت لینک ها
+          a(href="#!/admin/link")
+            i.fa.fa-link
+              span مدیریت لینک ها
         li
-          i.fa.fa-comments
-            a(href="#") مدیریت نظرات
-        li
-          i.fa.fa-graduation.cap
-            a(href="#/admin/profile") ویرایش اطلاعات شخصی
-    .small-12.large-1.columns
-      p &nbsp;
-    .small-12.large-8.columns
-      img(src='assets/images/admin/administrator.png')
-    .small-12.large-1.columns
-      p &nbsp;
+          a(href="#")
+            i.fa.fa-comments
+              span مدیریت نظرات
+        li 
+          a(href="#!/admin/profile")
+            i.fa.fa-graduation-cap
+              span ویرایش اطلاعات شخصی
+  
+  .small-12.large-9.columns.no-padding
+    div(ui-view='')
