@@ -185,7 +185,7 @@
           }]
         },
         ncyBreadcrumb: {
-          label: 'مدیریت مطhhhالب'
+          label: 'مدیریت مطالب'
         }
       })
       .state('admin.link', {
