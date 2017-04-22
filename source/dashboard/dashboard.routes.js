@@ -181,6 +181,7 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/content/content.controller.js',
               '/dashboard/pages/admin/content/content.css'
+              
             ]);
           }]
         },

@@ -16,12 +16,12 @@
     .small-12.large-12.columns
       div
         span خلاصه خبر
-        textarea
+        textarea(ui-tinymce="ContentViewModel.tinymceOptions", ng-model="ContentViewModel.abstract")
   .row
     .small-12.large-12.columns
       div
         span متن خبر
-        textarea
+        textarea(ui-tinymce="ContentViewModel.tinymceOptions", ng-model="ContentViewModel.body")
   .row
     .small-12.large-6.columns
       .small-12.large-6.columns

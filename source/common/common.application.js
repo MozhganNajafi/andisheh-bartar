@@ -6,8 +6,13 @@
     'ui.router',
     'oc.lazyLoad',
     'restangular',
-    // 'tinymce'
+    'ui.tinymce'
   ]);
+
+  angular.module('CommonApplication').config(function () {
+    tinyMCE.baseURL = '/assets/tinymce';
+    tinyMCE.suffix = '.min';
+  });
 
 
 })();

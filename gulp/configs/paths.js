@@ -27,7 +27,10 @@ var paths = {
       bower + '/lodash/dist/lodash.min.js',
       bower + '/restangular/dist/restangular.min.js',
       bower + '/oclazyload/dist/ocLazyLoad.min.js',
-      bower + '/angular-breadcrumb/dist/angular-breadcrumb.min.js'
+      bower + '/angular-breadcrumb/dist/angular-breadcrumb.min.js',
+      bower + '/tinymce/tinymce.min.js',
+      bower + '/angular-ui-tinymce/src/tinymce.js'
+
     ],
     fontFiles: []
   },
