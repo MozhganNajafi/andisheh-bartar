@@ -10,11 +10,19 @@
           th شناسه
           th عنوان
           th تاریخ
+          th ویرایش
+          th حذف
         tbody
-        tr(ng-repeat='item in EditContentViewModel.news')
+        tr.body(ng-repeat='item in EditContentViewModel.news')
           td {{item.id}}
           td {{item.title}}
           td {{item.datetime}}
+          td
+            a(ng-click='EditContentViewModel.edit(item.id)')
+              i.fa.fa-pencil
+          td
+            a(ng-click='EditContentViewModel.remove()')
+              i.fa.fa-trash
 
   .row
     .small-12.large-6.columns
