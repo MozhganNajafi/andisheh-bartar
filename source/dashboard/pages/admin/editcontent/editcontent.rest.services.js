@@ -3,9 +3,9 @@
   'use strict';
   angular
     .module('DashboardApplication')
-    .service('AdminRest', ['Restangular', AdminRestService ]);
+    .service('EditContentRest', ['Restangular', EditContentRestService ]);
 
-  function AdminRestService(Restangular) {
+  function EditContentRestService(Restangular) {
     return Restangular.service('');
   }
 

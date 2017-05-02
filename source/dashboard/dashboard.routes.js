@@ -171,22 +171,41 @@
           label: 'پنل مدیریت'
         }
       })
-      .state('admin.content', {
-        url: '/content',
-        templateUrl: 'dashboard/pages/admin/content/content.html',
-        controller: 'ContentController',
-        controllerAs: 'ContentViewModel',
+      .state('admin.addContent', {
+        url: '/addcontent',
+        templateUrl: 'dashboard/pages/admin/addcontent/addcontent.html',
+        controller: 'AddContentController',
+        controllerAs: 'AddContentViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/admin/content/content.controller.js',
-              '/dashboard/pages/admin/content/content.css'
+              '/dashboard/pages/admin/addcontent/addcontent.controller.js',
+              '/dashboard/pages/admin/addcontent/addcontent.css'
               
             ]);
           }]
         },
         ncyBreadcrumb: {
-          label: 'مدیریت مطالب'
+          label: 'افزودن خبر'
+        }
+      })
+      .state('admin.editContent', {
+        url: '/editcontent',
+        templateUrl: 'dashboard/pages/admin/editcontent/editcontent.html',
+        controller: 'EditContentController',
+        controllerAs: 'EditContentViewModel',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/editcontent/editcontent.controller.js',
+              '/dashboard/pages/admin/editcontent/editcontent.css',
+              '/bower_components/angular-smart-table/dist/smart-table.js'
+              
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'ویرایش خبر'
         }
       })
       .state('admin.link', {

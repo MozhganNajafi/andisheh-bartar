@@ -4,9 +4,9 @@
 
   angular
     .module('DashboardApplication')
-    .controller('ContentController', [ContentController]);
+    .controller('AddContentController', [AddContentController]);
 
-  function ContentController() {
+  function AddContentController() {
 
     var vm = this;
 
