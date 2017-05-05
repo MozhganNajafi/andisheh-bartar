@@ -39,6 +39,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/home/home.controller.js',
+              '/dashboard/pages/home/home.rest.services.js',              
               // '/assets/stylesheets/fontawesome.css',
               // '/assets/stylesheets/foundation.css',
               // '/assets/stylesheets/dashboard.css',

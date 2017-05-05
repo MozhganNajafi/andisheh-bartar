@@ -7,7 +7,7 @@
     .config([ 'RestangularProvider', RestangularConfig ]);
 
   function RestangularConfig( RestangularProvider ) {
-    RestangularProvider.setBaseUrl('http://localhost:5000/api');
+    RestangularProvider.setBaseUrl('http://abbasmoghadasi.com/api');
 
     RestangularProvider
     .addResponseInterceptor(function( data, operation, what, url, response ) {

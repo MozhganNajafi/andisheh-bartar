@@ -7,13 +7,13 @@
               .small-12.large-6.columns       
                 h5
                   i.fa.fa-check-square(aria-hidden=true)
-                    span {{news.title}}
+                    span {{news.subject}}
               .small-12.large-6.columns
-                small.float-left {{news.creationDatetime}} {{news.author}}
+                small.float-left {{news.submitDate}} {{news.authorName}}
               
             .row
               .small-12.columns
-                p {{news.content | limitTo:200}}
+                p {{news.body | limitTo:200}}
 
             .row
               .small-12.columns
