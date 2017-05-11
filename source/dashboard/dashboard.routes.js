@@ -25,6 +25,7 @@
               '/assets/stylesheets/foundation.css',
               '/assets/stylesheets/dashboard.css',
               '/assets/stylesheets/fontawesome.css',
+              '/dashboard/pages/home/home.rest.services.js',
             ]);
           }]
         }
@@ -39,10 +40,6 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/home/home.controller.js',
-              '/dashboard/pages/home/home.rest.services.js',              
-              // '/assets/stylesheets/fontawesome.css',
-              // '/assets/stylesheets/foundation.css',
-              // '/assets/stylesheets/dashboard.css',
               '/dashboard/pages/home/home.css'
             ]);
           }]
@@ -150,7 +147,8 @@
             return $ocLazyLoad.load([
               '/assets/stylesheets/foundation.css',
               '/assets/stylesheets/fontawesome.css',
-              '/dashboard/pages/admin/admin.css'
+              '/dashboard/pages/admin/admin.css',
+              '/dashboard/pages/home/home.rest.services.js'
             ]);
           }]
         },
@@ -181,7 +179,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
-              '/dashboard/pages/admin/addcontent/addcontent.css'
+              '/dashboard/pages/admin/addcontent/addcontent.css',
               
             ]);
           }]

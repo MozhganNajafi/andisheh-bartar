@@ -17,7 +17,7 @@
 
     function getNews() {
       NewsRest.getList().then(function (response) {
-        console.log(response);
+        vm.news = response.data;
       })
 
     }

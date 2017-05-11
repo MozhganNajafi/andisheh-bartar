@@ -4,11 +4,12 @@
 
   angular
     .module('DashboardApplication')
-    .controller('AddContentController', [AddContentController]);
+    .controller('AddContentController', ['NewsRest', AddContentController]);
 
-  function AddContentController() {
+  function AddContentController(NewsRest) {
 
     var vm = this;
+    vm.save = save;
 
     vm.tinymceOptions = {
       directionality: 'rtl',
@@ -24,7 +25,7 @@
       toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
       toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
       image_advtab: true,
-      templates: [ {
+      templates: [{
         title: 'Test template 1',
         content: 'Test 1'
       },
@@ -34,6 +35,34 @@
       }
       ]
     };
+
+    vm.categories=[{
+      id:0,
+      categoryName: 'خبری'
+    },
+    {
+      id:1,
+      categoryName: 'آموزشی'
+    },
+    {
+      id:2,
+      categoryName: 'سرگرمی'
+    },
+    ]
+
+    function save() {
+      newArticle = {
+        subject: vm.subject,
+        body: vm.body,
+        categoryId: vm.categoryId,
+        keywords: vm.keywords
+      };
+
+      NewsRest.post(newArticle).then(function(response){
+        alert('done!');
+      })
+
+    }
 
 
   }

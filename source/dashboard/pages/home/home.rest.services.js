@@ -3,9 +3,9 @@
   'use strict';
   angular
     .module('DashboardApplication')
-    .service('NewsRest', ['Restangular', LeadRestService]);
+    .service('NewsRest', ['Restangular', NewsRestService]);
 
-  function LeadRestService(Restangular) {
+  function NewsRestService(Restangular) {
     return Restangular.service('NewsContent');
   }
 

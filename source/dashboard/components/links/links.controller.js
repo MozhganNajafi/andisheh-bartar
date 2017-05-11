@@ -4,20 +4,18 @@
 
     angular
         .module('DashboardApplication')
-        .controller('LinkController', [LinkController]);
+        .controller('LinkController', ['LinkRest', LinkController]);
 
-    function LinkController() {
+    function LinkController(LinkRest) {
 
         var vm = this;
 
-        vm.links = [{
-            'href': 'www.google.com',
-            'title': 'موسسه راهبران رستاک'
-        },
-        {
-            'href': 'www.time.ir',
-            'title': 'علی فروزش'
-        }];
+        function getLinks() {
+            LinkRest.getList().then(function (response) {
+                vm.links = response.data;
+            })
+        }
+        getLinks();
 
     }
 

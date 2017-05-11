@@ -4,6 +4,6 @@
             h5 پیوندها
         hr
     div(ng-repeat='link in LinkViewModel.links')
-        a(href='link.href')
+        a(href='{{link.url}}')
             i.fa.fa-arrow-left
-            span {{link.title}}
+            span {{link.name}}
