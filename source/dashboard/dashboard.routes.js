@@ -198,7 +198,9 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/editcontent/editcontent.controller.js',
               '/dashboard/pages/admin/editcontent/editcontent.css',
-              '/bower_components/angular-smart-table/dist/smart-table.js'
+              '/bower_components/angular-smart-table/dist/smart-table.js',
+              '/bower_components/ng-jalaali-flat-datepicker/dist/ng-flat-datepicker.min.css',
+              '/bower_components/ng-jalaali-flat-datepicker/dist/ng-flat-datepicker.min.js',
               
             ]);
           }]

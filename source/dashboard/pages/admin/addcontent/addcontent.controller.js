@@ -36,6 +36,13 @@
       ]
     };
 
+    vm.datepickerConfig = {
+            allowFuture: false,
+            dateFormat: 'jYYYY/jMM/jDD',
+            gregorianDateFormat: 'YYYY/DD/MM',
+            minDate: moment.utc('2008', 'YYYY')
+        };
+
     vm.categories=[{
       id:0,
       categoryName: 'خبری'
@@ -51,13 +58,13 @@
     ]
 
     function save() {
-      newArticle = {
+      debugger;
+      var newArticle = {
         subject: vm.subject,
         body: vm.body,
         categoryId: vm.categoryId,
         keywords: vm.keywords
       };
-
       NewsRest.post(newArticle).then(function(response){
         alert('done!');
       })

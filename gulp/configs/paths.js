@@ -18,8 +18,8 @@ var paths = {
     ],
     cssFiles: [
       bower + '/foundation-sites/dist/css/foundation.min.css',
-      bower + '/font-awesome/css/font-awesome.min.css'
-      // bower + '/components-font-awesome/css/font-awesome.min.css'
+      bower + '/font-awesome/css/font-awesome.min.css',
+
     ],
     jsFiles: [
       bower + '/foundation-sites/dist/js/foundation.min.js',
@@ -29,7 +29,10 @@ var paths = {
       bower + '/oclazyload/dist/ocLazyLoad.min.js',
       bower + '/angular-breadcrumb/dist/angular-breadcrumb.min.js',
       bower + '/tinymce/tinymce.min.js',
-      bower + '/angular-ui-tinymce/src/tinymce.js'
+      bower + '/angular-ui-tinymce/src/tinymce.js',
+      bower + '/moment/min/moment.js',
+      bower + '/moment/min/moment-with-locales.min.js',
+      bower + '/moment-jalaali/build/moment-jalaali.js'
 
     ],
     fontFiles: []
