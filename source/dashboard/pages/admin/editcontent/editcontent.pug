@@ -15,20 +15,47 @@
         tbody
         tr.body(ng-repeat='item in EditContentViewModel.news')
           td {{item.id}}
-          td {{item.title}}
-          td {{item.datetime}}
+          td {{item.subject}}
+          td {{item.submitDate}}
           td
-            a(ng-click='EditContentViewModel.edit(item.id)')
+            a(ng-click='EditContentViewModel.update(item.id)')
               i.fa.fa-pencil
           td
-            a(ng-click='EditContentViewModel.remove()')
+            a(ng-click='EditContentViewModel.remove(item.id)')
               i.fa.fa-trash
+div(ng-if="EditContentViewModel.updateMode")
 
   .row
     .small-12.large-6.columns
+      div
+        span عنوان خبر
+        input(type='text', ng-model='EditContentViewModel.selectedItem.subject')
+
+    .small-12.large-6.columns
+      div
+        span گروه خبر
+        select(ng-model='EditContentViewModel.selectedItem.categoryId')
+          option(ng-repeat="category in EditContentViewModel.categories" value="{{category.id}}") {{category.categoryName}}
+  .row
+    .small-12.columns
+      div
+        span کلمات کلیدی
+        input(type='text', ng-model='EditContentViewModel.selectedItem.keywords')
+  //- .row
+  //-   .small-12.large-12.columns
+  //-     div
+  //-       span خلاصه خبر
+  //-       textarea(ui-tinymce="EditContentViewModel.tinymceOptions", ng-model="EditContentViewModel.abstract")
+  .row
+    .small-12.large-12.columns
+      div
+        span متن خبر
+        textarea(ui-tinymce="EditContentViewModel.tinymceOptions", ng-model="EditContentViewModel.selectedItem.body")
+  .row
+    .small-12.large-6.columns
       .small-12.large-6.columns
-        button.button(type='button', ng-click='') ذخیره
+        button.button(type='button', ng-click='EditContentViewModel.save()') ذخیره
       .small-12.large-6.columns
-        button.button(type='button', ng-click='') انصراف
+        button.button(type='button', ng-click='EditContentViewModel.cancel()') انصراف
 
      

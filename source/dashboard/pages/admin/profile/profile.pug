@@ -1,4 +1,6 @@
 .padding-xxlarge.margin-xxlarge.profile
   .row.expanded
     .small-12.columns
-        h1 profile
+      div
+        span متن درباره ما
+        textarea(ui-tinymce="ProfileViewModel.tinymceOptions", ng-model="ProfileViewModel.body")

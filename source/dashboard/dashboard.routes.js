@@ -149,6 +149,7 @@
               '/assets/stylesheets/fontawesome.css',
               '/dashboard/pages/admin/admin.css',
               '/dashboard/pages/home/home.rest.services.js'
+
             ]);
           }]
         },
@@ -179,8 +180,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
-              '/dashboard/pages/admin/addcontent/addcontent.css',
-              
+              '/dashboard/pages/admin/addcontent/addcontent.css'     
             ]);
           }]
         },
@@ -198,10 +198,7 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/editcontent/editcontent.controller.js',
               '/dashboard/pages/admin/editcontent/editcontent.css',
-              '/bower_components/angular-smart-table/dist/smart-table.js',
-              '/bower_components/ng-jalaali-flat-datepicker/dist/ng-flat-datepicker.min.css',
-              '/bower_components/ng-jalaali-flat-datepicker/dist/ng-flat-datepicker.min.js',
-              
+              '/bower_components/angular-smart-table/dist/smart-table.js'              
             ]);
           }]
         },
@@ -234,8 +231,8 @@
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
-              '/dashboard/pages/profile/profile.controller.js',
-              '/dashboard/pages/profile/profile.css'
+              '/dashboard/pages/admin/profile/profile.controller.js',
+              '/dashboard/pages/admin/profile/profile.css'
             ]);
           }]
         },

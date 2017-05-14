@@ -1,19 +1,41 @@
 .padding-xxlarge.margin-xxlarge.links
+
+  .row
+    .small-12.large-8.columns
+      table.table.table-striped(st-table='LinkViewModel.links')
+        thead
+        tr
+          th شناسه
+          th عنوان
+          th مسیر
+          th ویرایش
+          th حذف
+        tbody
+        tr.body(ng-repeat='item in LinkViewModel.links')
+          td {{item.id}}
+          td {{item.name}}
+          td {{item.url}}
+          td
+            a(ng-click='LinkViewModel.update(item.id)')
+              i.fa.fa-pencil
+          td
+            a(ng-click='LinkViewModel.remove(item.id)')
+              i.fa.fa-trash
   .row
     .small-12.large-6.columns
         div
           span عنوان لینک
-          input(type='text',ng-model='LinkViewModel.title')
+          input(type='text',ng-model='LinkViewModel.link.name')
     .small-12.large-6.columns
         div
           span مسیر لینک
-          input(type='text',ng-model='LinkViewModel.url')
+          input(type='text',ng-model='LinkViewModel.link.url')
 
   .row
     .small-12.large-6.columns
       .small-12.large-6.columns
-        button.button(type='button', ng-click='') ذخیره
+        button.button(type='button', ng-click='LinkViewModel.save()') ذخیره
       .small-12.large-6.columns
-        button.button(type='button', ng-click='') انصراف
+        button.button(type='button', ng-click='LinkViewModel.cancel()') انصراف
 
 

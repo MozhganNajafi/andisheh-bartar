@@ -8,19 +8,16 @@
         span عنوان خبر
         input(type='text', ng-model='AddContentViewModel.subject')
 
-    .small-12.large-6.columns
-      div
-        span تاریخ خبر
-        input(type="text", ng-model="ddContentViewModel.datetime",ng-jalaali-flat-datepicker,
-         datepicker-config='ddContentViewModel.datepickerConfig',dateFormat='jDD/jMM/jYYYY')
-  .row
+    
+  
     .small-12.large-6.columns
       div
         span گروه خبر
         select(ng-model='AddContentViewModel.categoryId')
           option(ng-repeat="category in AddContentViewModel.categories" value="{{category.id}}") {{category.categoryName}}
 
-    .small-12.large-6.columns
+  .row
+    .small-12.columns
       div
         span کلمات کلیدی
         input(type='text', ng-model='AddContentViewModel.keywords')

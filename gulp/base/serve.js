@@ -9,7 +9,7 @@ var gulp    = require('gulp'),
 gulp.task('connect', function() {
   connect.server({
     root: ['./public'],
-    port: 8081,
+    port: 8082,
     livereload: true
   });
 });
@@ -17,7 +17,7 @@ gulp.task('connect', function() {
 gulp.task('openbrowser', function () {
   return gulp.src(paths.public + '/index.html')
     .pipe(open({
-      uri: 'http://localhost:8081/index.html'
+      uri: 'http://localhost:8082/index.html'
     }));
 });
 
