@@ -4,11 +4,14 @@
 
   angular
     .module('DashboardApplication')
-    .controller('ProfileController', [ProfileController]);
+    .controller('ProfileController', ['PersonalInfoRest', ProfileController]);
 
-  function ProfileController() {
+  function ProfileController(PersonalInfoRest) {
 
     var vm = this;
+    vm.aboutus = {};
+    vm.save = save;
+    vm.cancel = cancel;
 
     vm.tinymceOptions = {
       directionality: 'rtl',
@@ -24,7 +27,7 @@
       toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
       toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
       image_advtab: true,
-      templates: [ {
+      templates: [{
         title: 'Test template 1',
         content: 'Test 1'
       },
@@ -36,8 +39,21 @@
     };
 
     function getAboutUs() {
-
+      PersonalInfoRest.get().then(function (response) {
+        vm.aboutus.body = response.data;
+        vm.id = response.data.id;
+      })
     }
     getAboutUs();
+
+    function save(data) {
+      PersonalInfoRest.one(vm.id).put(vm.aboutus.body).then(function (response) {
+        alert('ویرایش با موفقیت انجام شد');
+      })
+    }
+
+    function cancel() {
+      vm.aboutus.body = '';
+    }
   }
 })();

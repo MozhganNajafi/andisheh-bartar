@@ -75,7 +75,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/about-us/aboutus.controller.js',
-              '/dashboard/pages/about-us/aboutus.css'
+              '/dashboard/pages/about-us/aboutus.css',
+              '/dashboard/pages/admin/profile/profile.rest.services.js'
             ]);
           }]
         },
@@ -232,7 +233,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/profile/profile.controller.js',
-              '/dashboard/pages/admin/profile/profile.css'
+              '/dashboard/pages/admin/profile/profile.css',
+              '/dashboard/pages/admin/profile/profile.rest.services.js'
             ]);
           }]
         },
@@ -240,13 +242,6 @@
           label: 'مدیریت اطلاعات شخصی'
         }
       });
-
-    // .state('Dashboard.addrelatedfields', {
-    //   url: '/addrelatedfields',
-    //   templateUrl: '/Dashboard/Dashboard/pages/add-related-fields/add.related.fields.template.html',
-    //   controller: 'AddRelatedFieldsController',
-    //   controllerAs: 'AddRelatedFieldsViewModel'
-    // });
   }
 
 })();

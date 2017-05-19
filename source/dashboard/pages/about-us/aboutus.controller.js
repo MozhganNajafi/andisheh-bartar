@@ -4,12 +4,16 @@
 
   angular
     .module('DashboardApplication')
-    .controller('AboutUsController', [ AboutUsController ]);
+    .controller('AboutUsController', ['PersonalInfoRest', AboutUsController]);
 
-  function AboutUsController() {
+  function AboutUsController(PersonalInfoRest) {
 
     var vm = this;
-
+    vm.aboutus = {};
+    PersonalInfoRest.getList().then(function (response) {
+      debugger;
+      vm.aboutus.body = response.data.name;
+    })
 
   }
 })();
