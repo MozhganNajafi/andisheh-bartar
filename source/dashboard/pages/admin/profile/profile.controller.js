@@ -39,21 +39,20 @@
     };
 
     function getAboutUs() {
-      PersonalInfoRest.get().then(function (response) {
-        vm.aboutus.body = response.data;
-        vm.id = response.data.id;
+      PersonalInfoRest.getList().then(function (response) {
+        vm.aboutus = response.data;
       })
     }
     getAboutUs();
 
     function save(data) {
-      PersonalInfoRest.one(vm.id).put(vm.aboutus.body).then(function (response) {
+      PersonalInfoRest.one(1).put(vm.aboutus.body).then(function (response) {
         alert('ویرایش با موفقیت انجام شد');
       })
     }
 
     function cancel() {
-      vm.aboutus.body = '';
+      vm.aboutus = '';
     }
   }
 })();

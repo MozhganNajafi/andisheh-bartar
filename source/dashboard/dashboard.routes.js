@@ -226,7 +226,7 @@
       })
       .state('admin.profile', {
         url: '/profile',
-        templateUrl: 'dashboard/pages/profile/profile.html',
+        templateUrl: 'dashboard/pages/admin/profile/profile.html',
         controller: 'ProfileController',
         controllerAs: 'ProfileViewModel',
         resolve: {
