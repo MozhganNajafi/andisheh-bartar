@@ -9,8 +9,9 @@
                   i.fa.fa-check-square(aria-hidden=true)
                     span {{news.subject}}
               .small-12.large-6.columns
-                small.float-left {{news.submitDate}} {{news.authorName}}
-              
+                small.float-left {{news.submitDate}}
+                br
+                small.float-left {{news.authorName}}
             .row
               .small-12.columns
                 p {{news.body | htmlToPlaintext | limitTo:200}}
