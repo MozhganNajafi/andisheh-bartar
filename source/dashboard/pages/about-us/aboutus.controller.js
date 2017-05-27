@@ -12,7 +12,7 @@
     vm.aboutus = {};
     PersonalInfoRest.getList().then(function (response) {
       debugger;
-      vm.aboutus.body = response.data.name;
+      vm.aboutus.body = response.data.cv;
     })
 
   }

@@ -9,7 +9,6 @@
   function NewsController() {
 
     var vm = this;
-    vm.redirect = redirect;
 
 
 
