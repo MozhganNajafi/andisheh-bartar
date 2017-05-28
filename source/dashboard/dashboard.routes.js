@@ -85,7 +85,7 @@
         }
       })
       .state('dashboard.news', {
-        url: '/news',
+        url: '/news/:id',
         templateUrl: 'dashboard/pages/news/news.html',
         controller: 'NewsController',
         controllerAs: 'NewsViewModel',
