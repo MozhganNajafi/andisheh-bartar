@@ -1,7 +1,7 @@
 .aboutus
   .row.expanded
     .small-12.large-6.columns
-      p {{AboutUsViewModel.aboutus.body}}
+      div(ng-bind-html="AboutUsViewModel.aboutus.body")
     .small-12.large-6.columns
       img(src='assets/images/about-us/about-us.png')
         

@@ -4,16 +4,15 @@
 
   angular
     .module('DashboardApplication')
-    .controller('AboutUsController', ['PersonalInfoRest', AboutUsController]);
+    .controller('AboutUsController', ['PersonalInfoRest','$sce', AboutUsController]);
 
-  function AboutUsController(PersonalInfoRest) {
+  function AboutUsController(PersonalInfoRest,$sce) {
 
     var vm = this;
     vm.aboutus = {};
     PersonalInfoRest.getList().then(function (response) {
-      debugger;
-      vm.aboutus.body = response.data.cv;
-    })
+      vm.aboutus.body = $sce.trustAsHtml(response.data.cv);
+    });
 
   }
 })();
