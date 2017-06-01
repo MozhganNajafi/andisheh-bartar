@@ -10,8 +10,9 @@
 
     var vm = this;
     function getRecenetArticles() {
-      NewsRest.getList().then(function (response) {
-        vm.articles = response.data;
+      NewsRest.one('GetRecent').get().then(function (response) {
+        console.log(response);
+        vm.articles = response.entity.data;
       });
     }
     getRecenetArticles();

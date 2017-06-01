@@ -120,6 +120,24 @@
           label: 'آرشیو'
         }
       })
+      .state('dashboard.links', {
+        url: '/links',
+        templateUrl: 'dashboard/pages/link/link.html',
+        controller: 'LinkController',
+        controllerAs: 'LinkViewModel',
+        params: { id: null },
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/link/link.controller.js',
+              '/dashboard/pages/link/link.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'پیوندها'
+        }
+      })
       .state('dashboard.contact', {
         url: '/contact',
         templateUrl: 'dashboard/pages/contact-us/contactus.html',
