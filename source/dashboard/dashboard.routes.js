@@ -201,7 +201,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
-              '/dashboard/pages/admin/addcontent/addcontent.css'     
+              '/dashboard/pages/admin/addcontent/addcontent.css',
+              '/dashboard/pages/news/news.rest.services.js' 
             ]);
           }]
         },
@@ -237,6 +238,7 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/link/link.controller.js',
               '/dashboard/pages/admin/link/link.css'
+              
             ]);
           }]
         },

@@ -14,6 +14,7 @@
     vm.update = update;
     vm.save = save;
     vm.cancel = cancel;
+    vm.remove = remove;
 
 
     function getLinks() {
@@ -38,7 +39,7 @@
     function save() {
       debugger;
       if (vm.updateMode) {
-        LinkRest.one(vm.selectedId).customPUT(vm.link).then(function () {
+        LinkRest.one(vm.selectedId).put(vm.link,undefined,undefined,'{content-type: undefined}').then(function () {
           alert('ویرایش با موفقیت انجام شد');
           getLinks();
         });
@@ -54,6 +55,12 @@
     function cancel() {
       vm.updateMode = false;
       vm.link = {};
+    }
+
+    function remove(id){
+      LinkRest.one(id).delete().then(function(){
+        alert('حذف با موفقیت انجام شد');
+      })
     }
   }
 })();
