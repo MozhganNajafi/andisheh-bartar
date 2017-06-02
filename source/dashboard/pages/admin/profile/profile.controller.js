@@ -46,7 +46,9 @@
     getAboutUs();
 
     function save() {
-      PersonalInfoRest.one().customPUT(vm.aboutus,undefined,undefined,undefined).then(function (response) {
+      debugger;
+      console.log(PersonalInfoRest.one(1));
+      PersonalInfoRest.one(1).customPUT(undefined,undefined,vm.aboutus, undefined).then(function (response) {
         alert('ویرایش با موفقیت انجام شد');
       })
     }

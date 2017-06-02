@@ -130,7 +130,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/link/link.controller.js',
-              '/dashboard/pages/link/link.css'
+              '/dashboard/pages/link/link.css',
+              '/dashboard/pages/link/link.rest.services.js',
             ]);
           }]
         },
@@ -147,7 +148,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/contact-us/contactus.controller.js',
-              '/dashboard/pages/contact-us/contactus.css'
+              '/dashboard/pages/contact-us/contactus.css',
+
             ]);
           }]
         },

@@ -1,4 +1,7 @@
 .padding-xxlarge.margin-xxlarge.news
   .row.expanded
     .small-12.columns
-        div {{NewsViewModel.totalNews}}
+         div(ng-repeat='link in LinkViewModel.links')
+            .row
+              .small-12.large-6.columns       
+                a( href="{{link.url}}") {{link.name}}

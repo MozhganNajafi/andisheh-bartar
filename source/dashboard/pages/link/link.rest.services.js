@@ -3,10 +3,10 @@
   'use strict';
   angular
     .module('DashboardApplication')
-    .service('NewsRest', ['Restangular', NewsRestService]);
+    .service('LinkRest', ['Restangular', LinkRestService]);
 
-  function NewsRestService(Restangular) {
-    return Restangular.service('');
+  function LinkRestService(Restangular) {
+    return Restangular.service('link');
   }
 
 })();

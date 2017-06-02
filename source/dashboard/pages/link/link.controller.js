@@ -10,15 +10,15 @@
 
     var vm = this;
 
-    vm.seeMore = seeMore;
 
-
-    function seeMore(){
-      alert ('hi');
-      LinkRest.getlist().then(function(){
-        vm.links=response.entity.data;
+    function getLinks() {
+      LinkRest.getList({
+        pagesize: 0
+      }).then(function (response) {
+        vm.links = response.data;
       })
-    }
+    };
+    getLinks();
 
 
   }
