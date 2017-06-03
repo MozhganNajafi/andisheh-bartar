@@ -130,8 +130,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/link/link.controller.js',
-              '/dashboard/pages/link/link.css',
-              '/dashboard/pages/link/link.rest.services.js',
+              '/dashboard/pages/link/link.css'
             ]);
           }]
         },
@@ -148,8 +147,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/contact-us/contactus.controller.js',
-              '/dashboard/pages/contact-us/contactus.css',
-
+              '/dashboard/pages/contact-us/contactus.css'
             ]);
           }]
         },
@@ -202,7 +200,8 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
               '/dashboard/pages/admin/addcontent/addcontent.css',
-              '/dashboard/pages/news/news.rest.services.js' 
+              '/dashboard/pages/home/home.rest.services.js'
+              
             ]);
           }]
         },
@@ -237,8 +236,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/link/link.controller.js',
-              '/dashboard/pages/admin/link/link.css'
-              
+              '/dashboard/pages/admin/link/link.css'           
             ]);
           }]
         },
@@ -255,8 +253,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/profile/profile.controller.js',
-              '/dashboard/pages/admin/profile/profile.css',
-              '/dashboard/pages/admin/profile/profile.rest.services.js'
+              '/dashboard/pages/admin/profile/profile.css'
             ]);
           }]
         },

@@ -39,7 +39,7 @@
     function save() {
       debugger;
       if (vm.updateMode) {
-        LinkRest.one(vm.selectedId).put(vm.link,undefined,undefined,'{content-type: undefined}').then(function () {
+        LinkRest.one(vm.selectedId).customPUT(undefined,undefined,vm.link).then(function () {
           alert('ویرایش با موفقیت انجام شد');
           getLinks();
         });
@@ -57,8 +57,8 @@
       vm.link = {};
     }
 
-    function remove(id){
-      LinkRest.one(id).delete().then(function(){
+    function remove(id) {
+      LinkRest.one(id).remove().then(function () {
         alert('حذف با موفقیت انجام شد');
       })
     }
