@@ -1,4 +1,6 @@
 .padding-xxlarge.margin-xxlarge.news
   .row.expanded
     .small-12.columns
-        div {{NewsViewModel.totalNews}}
+      h5 {{NewsViewModel.subject}}
+      br
+      div(ng-bind-html="NewsViewModel.body")

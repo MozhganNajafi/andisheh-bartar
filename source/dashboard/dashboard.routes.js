@@ -200,8 +200,8 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
               '/dashboard/pages/admin/addcontent/addcontent.css',
-              '/dashboard/pages/home/home.rest.services.js'
-              
+              '/dashboard/pages/home/home.rest.services.js',
+              '/dashboard/pages/admin/addcontent/addcontent.rest.services.js'             
             ]);
           }]
         },

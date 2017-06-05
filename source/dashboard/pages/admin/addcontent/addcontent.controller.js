@@ -4,9 +4,9 @@
 
   angular
     .module('DashboardApplication')
-    .controller('AddContentController', ['NewsRest', AddContentController]);
+    .controller('AddContentController', ['NewsRest', 'NewsCategoryRest', AddContentController]);
 
-  function AddContentController(NewsRest) {
+  function AddContentController(NewsRest, NewsCategoryRest) {
 
     var vm = this;
     vm.save = save;
@@ -36,29 +36,25 @@
       ]
     };
 
-    vm.categories=[{
-      id:0,
-      categoryName: 'خبری'
-    },
-    {
-      id:1,
-      categoryName: 'آموزشی'
-    },
-    {
-      id:2,
-      categoryName: 'سرگرمی'
-    }];
+    function getCategories() {
+      NewsCategoryRest.getList().then(function (response) {
+        console.log(response);
+        vm.categories = response.entity.data;
+      });
+    }
+    getCategories();
 
     function save() {
-      debugger;
       var newArticle = {
         subject: vm.subject,
         body: vm.body,
         categoryId: vm.categoryId,
-        keywords: vm.keywords
+        keywords: vm.keywords,
+        AuthorId: 1,
+        Labels: ['label1', 'label2']
       };
-      NewsRest.post(newArticle).then(function(){
-        alert('done!');
+      NewsRest.post(newArticle).then(function () {
+        alert('خبر با موفقیت ثبت شد.!');
       });
 
     }

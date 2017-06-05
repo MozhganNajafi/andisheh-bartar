@@ -39,7 +39,7 @@ gulp.task('stylesheets', function( callback ) {
 gulp.task('build', function( callback ) {
   runSequence(
     'clean',
-    // 'bower.mainfiles',
+    'bower.mainfiles',
     'assets',
     'index',
     'javascripts',

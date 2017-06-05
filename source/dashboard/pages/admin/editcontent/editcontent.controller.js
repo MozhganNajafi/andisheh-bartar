@@ -17,17 +17,17 @@
     vm.cancel = cancel;
 
     vm.categories = [{
-        id: 0,
-        categoryName: 'خبری'
-      },
-      {
-        id: 1,
-        categoryName: 'آموزشی'
-      },
-      {
-        id: 2,
-        categoryName: 'سرگرمی'
-      }
+      id: 0,
+      categoryName: 'خبری'
+    },
+    {
+      id: 1,
+      categoryName: 'آموزشی'
+    },
+    {
+      id: 2,
+      categoryName: 'سرگرمی'
+    }
     ];
 
 
@@ -44,22 +44,28 @@
       NewsRest.one(vm.selectedId).get().then(function (response) {
         var news = response.entity.data;
         vm.selectedItem.subject = news.subject;
+        vm.selectedItem.body = news.body;
         vm.selectedItem.categoryId = news.categoryId;
         vm.selectedItem.keywords = news.keywords;
-        vm.selectedItem.body = news.body;
+
       });
     }
 
     function remove(id) {
-
+      NewsRest.one(id).remove().then(function (response) {
+        if (response.succeeded) {
+          alert('حذف با موفقیت انجام شد');
+          getNews();
+        }
+      })
 
     }
 
     function save() {
-      debugger;
-      NewsRest.one(vm.selectedId).put(vm.selectedItem).then(function (response) {
-        console.log(response);
-        if (response.succedeed) {
+      vm.selectedItem.authorId = 1;
+      vm.selectedItem.labels = ['label1', 'label2'];
+      NewsRest.one(vm.selectedId).customPUT(vm.selectedItem).then(function (response) {
+        if (response.succeeded) {
           alert('ویرایش با موفقیت انجام شد');
           vm.updateMode = false;
           vm.selectedId = null;
