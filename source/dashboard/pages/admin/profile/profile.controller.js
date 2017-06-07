@@ -47,8 +47,10 @@
 
     function save() {
       debugger;
-      console.log(PersonalInfoRest.one(1));
-      PersonalInfoRest.one(1).customPUT(undefined,undefined,vm.aboutus, undefined).then(function (response) {
+      // PersonalInfoRest.one(1).customPUT(undefined,undefined,vm.aboutus, undefined).then(function (response) {
+      //   alert('ویرایش با موفقیت انجام شد');
+      // }) intori be onvane parameter tuye query string mifreste vali be surate payin tuye body mifreste
+      PersonalInfoRest.one(1).customPUT(vm.aboutus).then(function (response) {
         alert('ویرایش با موفقیت انجام شد');
       })
     }

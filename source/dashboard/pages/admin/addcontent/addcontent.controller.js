@@ -39,22 +39,23 @@
     function getCategories() {
       NewsCategoryRest.getList().then(function (response) {
         console.log(response);
-        vm.categories = response.entity.data;
+        vm.categories = response.data;
       });
     }
     getCategories();
 
     function save() {
       var newArticle = {
-        subject: vm.subject,
-        body: vm.body,
-        categoryId: vm.categoryId,
-        keywords: vm.keywords,
+        subject: vm.content.subject,
+        body: vm.content.body,
+        categoryId: vm.content.categoryId,
+        keywords: vm.content.keywords,
         AuthorId: 1,
         Labels: ['label1', 'label2']
       };
       NewsRest.post(newArticle).then(function () {
         alert('خبر با موفقیت ثبت شد.!');
+        vm.content = {};
       });
 
     }

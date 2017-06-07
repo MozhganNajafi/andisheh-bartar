@@ -6,21 +6,21 @@
     .small-12.large-6.columns
       div
         span عنوان خبر
-        input(type='text', ng-model='AddContentViewModel.subject')
+        input(type='text', ng-model='AddContentViewModel.content.subject')
 
     
   
     .small-12.large-6.columns
       div
         span گروه خبر
-        select(ng-model='AddContentViewModel.categoryId')
-          option(ng-repeat="category in AddContentViewModel.categories" value="{{category.id}}") {{category.categoryName}}
+        select(ng-model='AddContentViewModel.content.categoryId')
+          option(ng-repeat="category in AddContentViewModel.categories" value="{{category.id}}") {{category.name}}
 
   .row
     .small-12.columns
       div
         span کلمات کلیدی
-        input(type='text', ng-model='AddContentViewModel.keywords')
+        input(type='text', ng-model='AddContentViewModel.content.keywords')
   //- .row
   //-   .small-12.large-12.columns
   //-     div
@@ -30,7 +30,7 @@
     .small-12.large-12.columns
       div
         span متن خبر
-        textarea(ui-tinymce="AddContentViewModel.tinymceOptions", ng-model="AddContentViewModel.body")
+        textarea(ui-tinymce="AddContentViewModel.tinymceOptions", ng-model="AddContentViewModel.content.body")
   .row
     .small-12.large-6.columns
       .small-12.large-6.columns
