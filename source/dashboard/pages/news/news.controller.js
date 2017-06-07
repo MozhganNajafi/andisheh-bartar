@@ -11,10 +11,8 @@
     var vm = this;
     var id = $stateParams.id;
 
-    NewsRest.get({
-      id: id
-    }).then(function (response) {
-      vm.totalNews = response.data.body;
+    NewsRest.one(id).get().then(function (response) {
+      vm.totalNews = response.entity.data.body;
     });
 
 
