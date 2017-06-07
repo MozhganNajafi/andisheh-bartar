@@ -6,7 +6,7 @@
     .service('NewsRest', ['Restangular', NewsRestService]);
 
   function NewsRestService(Restangular) {
-    return Restangular.service('');
+    return Restangular.service('NewsContent');
   }
 
 })();

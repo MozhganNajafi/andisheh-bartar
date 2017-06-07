@@ -14,10 +14,13 @@
     vm.update = update;
     vm.save = save;
     vm.cancel = cancel;
+    vm.remove = remove;
 
 
     function getLinks() {
-      LinkRest.getList().then(function (response) {
+      LinkRest.getList({
+        pagesize: 0
+      }).then(function (response) {
         vm.links = response.data;
       });
     }
@@ -34,21 +37,30 @@
     }
 
     function save() {
-      debugger;
       if (vm.updateMode) {
-        LinkRest.one(vm.selectedId).put(vm.link).then(function () {
+        LinkRest.one(vm.selectedId).customPUT(vm.link).then(function () {
           alert('ویرایش با موفقیت انجام شد');
+          getLinks();
         });
       } else {
         LinkRest.post(vm.link).then(function () {
           alert('ثبت با موفقیت انجام شد');
+          getLinks();
         });
       }
+      vm.link = {};
     }
 
     function cancel() {
       vm.updateMode = false;
-      vm.link={};
+      vm.link = {};
+    }
+
+    function remove(id) {
+      LinkRest.one(id).remove().then(function () {
+        alert('حذف با موفقیت انجام شد');
+        getLinks();
+      })
     }
   }
 })();

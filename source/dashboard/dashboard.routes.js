@@ -120,6 +120,24 @@
           label: 'آرشیو'
         }
       })
+      .state('dashboard.links', {
+        url: '/links',
+        templateUrl: 'dashboard/pages/link/link.html',
+        controller: 'LinkController',
+        controllerAs: 'LinkViewModel',
+        params: { id: null },
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/link/link.controller.js',
+              '/dashboard/pages/link/link.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'پیوندها'
+        }
+      })
       .state('dashboard.contact', {
         url: '/contact',
         templateUrl: 'dashboard/pages/contact-us/contactus.html',
@@ -181,7 +199,9 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
-              '/dashboard/pages/admin/addcontent/addcontent.css'     
+              '/dashboard/pages/admin/addcontent/addcontent.css',
+              '/dashboard/pages/home/home.rest.services.js',
+              '/dashboard/pages/admin/addcontent/addcontent.rest.services.js'             
             ]);
           }]
         },
@@ -216,7 +236,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/link/link.controller.js',
-              '/dashboard/pages/admin/link/link.css'
+              '/dashboard/pages/admin/link/link.css'           
             ]);
           }]
         },
@@ -233,8 +253,7 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/profile/profile.controller.js',
-              '/dashboard/pages/admin/profile/profile.css',
-              '/dashboard/pages/admin/profile/profile.rest.services.js'
+              '/dashboard/pages/admin/profile/profile.css'
             ]);
           }]
         },

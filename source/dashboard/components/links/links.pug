@@ -4,6 +4,10 @@
             h5 پیوندها
         hr
     div(ng-repeat='link in LinkViewModel.links')
-        a(href='{{link.url}}')
+        a(href='{{link.url}}',target="_blank")
             i.fa.fa-arrow-left
             small {{link.name}}
+
+    div.seemore
+        a(ng-click='LinkViewModel.seeMore()')
+            small مشاهده بیشتر

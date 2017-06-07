@@ -2,3 +2,6 @@
   .row.expanded
     .small-12.columns
         div {{NewsViewModel.totalNews | htmlToPlaintext}}
+        h5 {{NewsViewModel.subject}}
+        br
+        div(ng-bind-html="NewsViewModel.body")
