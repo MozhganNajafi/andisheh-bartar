@@ -35,7 +35,7 @@ div(ng-if="EditContentViewModel.updateMode")
       div
         span گروه خبر
         select(ng-model='EditContentViewModel.selectedItem.categoryId')
-          option(ng-repeat="category in EditContentViewModel.categories" value="{{category.id}}") {{category.categoryName}}
+          option(ng-repeat="category in EditContentViewModel.categories" value="{{category.id}}") {{category.name}}
   .row
     .small-12.columns
       div

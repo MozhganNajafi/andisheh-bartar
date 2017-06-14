@@ -38,7 +38,6 @@
 
     function getCategories() {
       NewsCategoryRest.getList().then(function (response) {
-        console.log(response);
         vm.categories = response.data;
       });
     }

@@ -3,10 +3,10 @@
   'use strict';
   angular
     .module('DashboardApplication')
-    .service('EditContentRest', ['Restangular', EditContentRestService ]);
+    .service('NewsCategoryRest', ['Restangular', NewsCategoryRestService ]);
 
-  function EditContentRestService(Restangular) {
-    return Restangular.service('');
+  function NewsCategoryRestService(Restangular) {
+    return Restangular.service('NewsCategory');
   }
 
 })();

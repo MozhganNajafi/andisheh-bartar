@@ -219,7 +219,8 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/editcontent/editcontent.controller.js',
               '/dashboard/pages/admin/editcontent/editcontent.css',
-              '/bower_components/angular-smart-table/dist/smart-table.js'              
+              '/bower_components/angular-smart-table/dist/smart-table.js',
+              '/dashboard/pages/admin/editcontent/editcontent.rest.services.js'                 
             ]);
           }]
         },

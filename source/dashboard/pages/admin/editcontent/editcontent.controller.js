@@ -4,9 +4,9 @@
 
   angular
     .module('DashboardApplication')
-    .controller('EditContentController', ['NewsRest', EditContentController]);
+    .controller('EditContentController', ['NewsRest', 'NewsCategoryRest', EditContentController]);
 
-  function EditContentController(NewsRest) {
+  function EditContentController(NewsRest, NewsCategoryRest) {
 
     var vm = this;
     vm.selectedItem = {};
@@ -16,19 +16,12 @@
     vm.save = save;
     vm.cancel = cancel;
 
-    vm.categories = [{
-      id: 0,
-      categoryName: 'خبری'
-    },
-    {
-      id: 1,
-      categoryName: 'آموزشی'
-    },
-    {
-      id: 2,
-      categoryName: 'سرگرمی'
+    function getCategories() {
+      NewsCategoryRest.getList().then(function (response) {
+        vm.categories = response.data;
+      });
     }
-    ];
+    getCategories();
 
 
     function getNews() {
