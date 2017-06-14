@@ -1,6 +1,20 @@
 .padding-xxlarge.margin-xxlarge.news
   .row.expanded
     .small-12.columns
-        h5 {{NewsViewModel.subject}}
-        br
-        div(ng-bind-html="NewsViewModel.body")
+      h5
+        span {{NewsViewModel.selectedNews.subject}}
+  .row
+    .small-12.large-6.columns
+      br
+      small گروه {{NewsViewModel.selectedNews.categoryName}}
+    .small-12.large-6.columns
+      small.float-left {{NewsViewModel.selectedNews.submitDate}}
+      br
+      small.float-left {{NewsViewModel.selectedNews.authorName}}
+  br
+  .row
+    .small-12.columns
+      div(ng-bind-html="NewsViewModel.body")
+  .row
+    small(ng-repeat='label in NewsViewModel.selectedNews.labels') برچسب ها : 
+      span {{label.name}} ,

@@ -13,7 +13,7 @@
 
     NewsRest.one(id).get().then(function (response) {
       vm.body = $sce.trustAsHtml(response.entity.data.body);
-      vm.subject = response.entity.data.subject;
+      vm.selectedNews = response.entity.data;
     });
 
 
