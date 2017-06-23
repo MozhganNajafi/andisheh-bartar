@@ -201,7 +201,9 @@
               '/dashboard/pages/admin/addcontent/addcontent.controller.js',
               '/dashboard/pages/admin/addcontent/addcontent.css',
               '/dashboard/pages/home/home.rest.services.js',
-              '/dashboard/pages/admin/addcontent/addcontent.rest.services.js'             
+              '/dashboard/pages/admin/addcontent/addcontent.rest.services.js',
+              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
+              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css'            
             ]);
           }]
         },
@@ -220,7 +222,9 @@
               '/dashboard/pages/admin/editcontent/editcontent.controller.js',
               '/dashboard/pages/admin/editcontent/editcontent.css',
               '/bower_components/angular-smart-table/dist/smart-table.js',
-              '/dashboard/pages/admin/editcontent/editcontent.rest.services.js'                 
+              '/dashboard/pages/admin/editcontent/editcontent.rest.services.js',
+              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
+              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css'                
             ]);
           }]
         },

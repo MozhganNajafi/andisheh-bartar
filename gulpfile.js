@@ -15,6 +15,7 @@ gulp.task('javascripts', function( callback ) {
     'common.javascripts',
     'dashboard.javascripts',
     'pages.javascripts',
+    'pages.templates',
     'tinymce.themes',
     'tinymce.plugins',
     callback
