@@ -21,8 +21,9 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var obj = JSON.parse(xhttp.response);
-                    console.log(obj);
-                    console.log(obj.ip);
+                    LogRest.post({'IpAddress': obj.ip}).then(function (){
+                       getVisitor(); 
+                    })
                 }
             };
             xhttp.open("GET", "//freegeoip.net/json/?callback=", true);
