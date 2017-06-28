@@ -8,7 +8,7 @@
         .small-12.large-5.column
             div
                 span پست الکترونیک
-                input(type='email',ng-model='CommentViewModel.comment.email')
+                input(type='email',ng-model='CommentViewModel.comment.email',placeholder='info@mail.com')
     .row
         .small-12.large-5.column
             div
@@ -17,8 +17,8 @@
     .row
         .small-12.large-5.columns
             div
-                span متن
-                textarea(ng-model='CommentViewModel.comment.context')
+                span نظر
+                textarea(ng-model='CommentViewModel.comment.context',placeholder='متن مورد نظر')
     .row
         .small-12.large-3.column
             button.button.primary(type='button',ng-click='CommentViewModel.add()') ارسال
