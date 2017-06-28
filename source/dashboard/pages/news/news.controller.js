@@ -9,14 +9,18 @@
   function NewsController($stateParams, NewsRest, $sce) {
 
     var vm = this;
-    var id = $stateParams.id;
+    vm.id = $stateParams.id;
+    vm.openCommentPanel = openCommentPanel;
+    vm.openPanel = false;
 
-    NewsRest.one(id).get().then(function (response) {
+    NewsRest.one(vm.id).get().then(function (response) {
       vm.body = $sce.trustAsHtml(response.entity.data.body);
       vm.selectedNews = response.entity.data;
     });
 
-
+    function openCommentPanel() {
+      vm.openPanel = !vm.openPanel;
+    }
 
   }
 })();

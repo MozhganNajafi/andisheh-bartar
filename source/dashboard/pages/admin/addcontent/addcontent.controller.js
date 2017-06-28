@@ -10,6 +10,14 @@
 
     var vm = this;
     vm.save = save;
+    vm.content = {
+      subject: '',
+      body: '',
+      categoryId: '',
+      keywords: '',
+      AuthorId: 1,
+      Labels: []
+    };
 
     vm.tinymceOptions = {
       directionality: 'rtl',
@@ -26,13 +34,13 @@
       toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
       image_advtab: true,
       templates: [{
-        title: 'Test template 1',
-        content: 'Test 1'
-      },
-      {
-        title: 'Test template 2',
-        content: 'Test 2'
-      }
+          title: 'Test template 1',
+          content: 'Test 1'
+        },
+        {
+          title: 'Test template 2',
+          content: 'Test 2'
+        }
       ]
     };
 
@@ -52,11 +60,14 @@
         AuthorId: 1,
         Labels: ['label1', 'label2']
       };
-      NewsRest.post(newArticle).then(function () {
-        alert('خبر با موفقیت ثبت شد.!');
-        vm.content = {};
-      });
-
+      if (vm.content.categoryId === '') {
+        alert('وارد کردن گروه خبر الزامیست');
+      } else {
+        NewsRest.post(newArticle).then(function () {
+          alert('خبر با موفقیت ثبت شد.!');
+          vm.content = {};
+        });
+      }
     }
 
 
