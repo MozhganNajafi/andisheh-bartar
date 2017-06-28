@@ -23,13 +23,13 @@
     h6 لیست نظرات
     div(ng-repeat='comment in NewsViewModel.selectedNews.comments')
       div.comment-box
-        label نویسنده : 
+        label.date-author نویسنده : 
           span {{comment.name}}
-        label
+        label.date-author
           span {{comment.submitDate}}
         label نظر :   
           span {{comment.context}}
-      
+  br   
   .row
     .small-12.columns 
       button.button.primary(type='button',ng-click='NewsViewModel.openCommentPanel()') نظر شما
