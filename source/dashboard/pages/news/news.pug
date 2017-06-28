@@ -18,3 +18,21 @@
   .row
     small(ng-repeat='label in NewsViewModel.selectedNews.labels') برچسب ها : 
       span {{label.name}} ,
+  br
+  .row
+    h6 لیست نظرات
+    div(ng-repeat='comment in NewsViewModel.selectedNews.comments')
+      div.comment-box
+        label.date-author نویسنده : 
+          span {{comment.name}}
+        label.date-author
+          span {{comment.submitDate}}
+        label نظر :   
+          span {{comment.context}}
+  br   
+  .row
+    .small-12.columns 
+      button.button.primary(type='button',ng-click='NewsViewModel.openCommentPanel()') نظر شما
+  .row(ng-if='NewsViewModel.openPanel')
+    .small-12.columns 
+      comment(news-id='NewsViewModel.id')

@@ -55,6 +55,7 @@
     }
 
     function save() {
+      debugger;
       vm.selectedItem.authorId = 1;
       vm.selectedItem.labels = ['label1', 'label2'];
       NewsRest.one(vm.selectedId).customPUT(vm.selectedItem).then(function (response) {

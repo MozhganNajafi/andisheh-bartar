@@ -6,19 +6,25 @@
     .body
         div.color
             i.fa.fa-arrow-left
-            small کل بازدید : 
+            small کل بازدید : {{VisitorViewModel.visitors.allViewer}}
         div.color 
             i.fa.fa-arrow-left
-            small بازدید امروز : 
+            small بازدید امروز : {{VisitorViewModel.visitors.todayViewer}}
         div.color 
             i.fa.fa-arrow-left
-            small بازدید دیروز :
+            small بازدید دیروز : {{VisitorViewModel.visitors.yesterDayViewer}}
         div.color
             i.fa.fa-arrow-left
-            small بازدید این ماه :
+            small بازدید این ماه : {{VisitorViewModel.visitors.currentMonthViewer}}
         div.color 
             i.fa.fa-arrow-left
-            small بازدید ماه قبل : 
+            small بازدید ماه قبل : {{VisitorViewModel.visitors.previousMonthViewer}}
         div.color 
             i.fa.fa-arrow-left
-            small تعداد کل پست ها : 
+            small تعداد کل پست ها : {{VisitorViewModel.visitors.countNews}}
+        div.color 
+            i.fa.fa-arrow-left
+            small زمان آخرین بازدید : {{VisitorViewModel.visitors.lastView}}
+        div.color 
+            i.fa.fa-arrow-left
+            small زمان آخرین پست : {{VisitorViewModel.visitors.lastEdit}}

@@ -39,9 +39,10 @@
     "tinymce": "^4.5.6",
     "angular-ui-router": "1.0.0-rc.1",
     "angular-messages": "^1.6.2",
-    "angular": "^1.6.4",
+    "adm-dtp": "*",
+    "angular": "1.5.11",
     "angular-smart-table": "^2.1.8",
-    "adm-dtp": "*"
+    "ngMask": "angular-mask#^3.1.1"
   },
   "devDependencies": {
     "tiny-slider": "^0.6.3",

@@ -6,21 +6,6 @@
     .content
         ul
             
-            li
-                a(href='#')  فروردین 1396
-            li
-                a(href='#') اسفند 1395
-            li
-                a(href='#') بهمن 1395
-            li
-                a(href='#') دی 1395
-            li
-                a(href='#') آذر 1395
-            li
-                a(href='#') آبان 1395
-            li
-                a(href='#') مهر 1395
-            li
-                a(href='#') شهریور 1395
-            li
-                a(href='#') مرداد 1395
+            li(ng-repeat='item in ArchiveViewModel.archive')
+                a(ng-click='ArchiveViewModel.search(item.value)') {{item.key}}
+                

@@ -4,11 +4,18 @@
 
     angular
         .module('DashboardApplication')
-        .controller('VisitorController', ['PersonalInfoRest','$timeout', VisitorController]);
+        .controller('VisitorController', ['PersonalInfoRest','$timeout','LogRest', VisitorController]);
 
-    function VisitorController(PersonalInfoRest, $timeout) {
+    function VisitorController(PersonalInfoRest, $timeout, LogRest) {
 
         var vm = this;
+        function getVisitor(){
+            LogRest.getList().then(function (response) {
+                vm.visitors = response.data;
+                console.log(vm.visitors);
+            })
+        }
+        getVisitor();
         $timeout(function updateVisitor() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {

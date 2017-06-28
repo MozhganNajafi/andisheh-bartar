@@ -204,6 +204,7 @@
               '/dashboard/pages/admin/addcontent/addcontent.rest.services.js',
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css'            
+              // '/bower_components/ngMask/dist/ngMask.min.js'    
             ]);
           }]
         },
@@ -225,6 +226,7 @@
               '/dashboard/pages/admin/editcontent/editcontent.rest.services.js',
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css'                
+              // '/bower_components/ngMask/dist/ngMask.min.js'                   
             ]);
           }]
         },

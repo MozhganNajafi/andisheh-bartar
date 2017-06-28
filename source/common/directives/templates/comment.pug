@@ -1,0 +1,24 @@
+.comment
+    .row
+        .small-12.large-5.column
+            div
+                span نام
+                input(type='text',ng-model='CommentViewModel.comment.name')
+    .row
+        .small-12.large-5.column
+            div
+                span پست الکترونیک
+                input(type='email',ng-model='CommentViewModel.comment.email',placeholder='info@mail.com')
+    .row
+        .small-12.large-5.column
+            div
+                input(type='checkbox',ng-model='CommentViewModel.comment.isPrivate')                
+                label ارسال نظر به صورت خصوصی
+    .row
+        .small-12.large-5.columns
+            div
+                span نظر
+                textarea(ng-model='CommentViewModel.comment.context',placeholder='متن مورد نظر')
+    .row
+        .small-12.large-3.column
+            button.button.primary(type='button',ng-click='CommentViewModel.add()') ارسال

@@ -13,19 +13,21 @@
     .small-12.large-6.columns
       div
         span گروه خبر
-        select(ng-model='AddContentViewModel.content.categoryId')
-          option(ng-repeat="category in AddContentViewModel.categories" value="{{category.id}}") {{category.name}}
+        select(ng-model='AddContentViewModel.content.categoryId',
+        ng-options="category.id as category.name for category in AddContentViewModel.categories")
+          option(value="") -- گروه خبری را وارد کنید --
 
   .row
     .small-12.large-6.columns
       div
-        span کلمات کلیدی
+        span برچسب
         input(type='text', ng-model='AddContentViewModel.content.keywords')
     
     .small-12.large-6.columns
       div
         span تاریخ خبر
         adm-dtp(ng-model='AddContentViewModel.content.date', options='{calType: "jalali", format: "YYYY/MM/DD"}')
+
   //- .row
   //-   .small-12.large-12.columns
   //-     div
@@ -42,5 +44,3 @@
         button.button(type='button', ng-click='AddContentViewModel.save()') ذخیره
       .small-12.large-6.columns
         button.button(type='button', ng-click='') انصراف
-
-     

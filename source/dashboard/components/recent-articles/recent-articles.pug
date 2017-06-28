@@ -6,5 +6,5 @@
     .content
         ul
             li(ng-repeat='article in RecentArticlesViewModel.articles')
-                a(href='#')
+                a(ng-click="RecentArticlesViewModel.redirect(article.id)")
                     span {{article.subject}}
