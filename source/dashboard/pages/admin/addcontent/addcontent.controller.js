@@ -57,7 +57,7 @@
         body: vm.content.body,
         categoryId: vm.content.categoryId,
         keywords: vm.content.keywords,
-        date: vm.content.date,
+        submitDate: vm.content.submitDate,
         AuthorId: 1,
         Labels: ['label1', 'label2']
       };

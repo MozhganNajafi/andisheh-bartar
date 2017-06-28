@@ -40,6 +40,7 @@
         vm.selectedItem.body = news.body;
         vm.selectedItem.categoryId = news.categoryId;
         vm.selectedItem.keywords = news.keywords;
+        vm.selectedItem.submitDate  = news.submitDate
 
       });
     }
