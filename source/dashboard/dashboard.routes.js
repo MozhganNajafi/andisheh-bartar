@@ -251,7 +251,23 @@
           label: 'مدیریت پیوند ها'
         }
       })
-      .state('admin.profile', {
+      .state('admin.comment', {
+        url: '/comment',
+        templateUrl: 'dashboard/pages/admin/comment/comment.html',
+        controller: 'CommentController',
+        controllerAs: 'CommentViewModel',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/comment/comment.controller.js',
+              '/dashboard/pages/admin/comment/comment.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'مدیریت اطلاعات شخصی'
+        }
+      }).state('admin.profile', {
         url: '/profile',
         templateUrl: 'dashboard/pages/admin/profile/profile.html',
         controller: 'ProfileController',
