@@ -251,6 +251,60 @@
           label: 'مدیریت پیوند ها'
         }
       })
+      .state('admin.comment', {
+        url: '/comment',
+        templateUrl: 'dashboard/pages/admin/comment/view/comment.html',
+        controller: 'CommentController',
+        controllerAs: 'CommentViewModel',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/comment/view/comment.controller.js',
+              '/dashboard/pages/admin/comment/view/comment.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'مدیریت نظرات'
+        }
+      })
+
+      .state('admin.commentdetails', {
+        url: '/commentdetails/:id',
+        templateUrl: 'dashboard/pages/admin/comment/details/comment-details.html',
+        controller: 'CommentDetailsController',
+        controllerAs: 'CommentDetailsViewModel',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/comment/details/comment-details.controller.js',
+              '/dashboard/pages/admin/comment/details/comment-details.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'مدیریت نظرات'
+        }
+      })
+
+      
+      .state('admin.visitor', {
+        url: '/visitor',
+        templateUrl: 'dashboard/pages/admin/visitor/visitor.html',
+        controller: 'VisitorController',
+        controllerAs: 'VisitorViewModel',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/visitor/visitor.controller.js',
+              '/dashboard/pages/admin/visitor/visitor.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'مدیریت بازدیدکنندگان'
+        }
+      })
       .state('admin.profile', {
         url: '/profile',
         templateUrl: 'dashboard/pages/admin/profile/profile.html',
