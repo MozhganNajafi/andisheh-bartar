@@ -1,0 +1,21 @@
+.padding-xxlarge.margin-xxlarge.comments
+
+  .row
+    .small-12.large-8.columns
+      table.table.table-striped(st-table='CommentViewModel.comments')
+        thead
+        tr
+          th موضوع
+          th گروه خبری
+          th تعداد نظرات تایید شده
+          th تعداد نظرات تایید نشده
+          th مشاهده نظرات
+        tbody
+        tr.body(ng-repeat='item in CommentViewModel.comments')
+          td {{item.subject}}
+          td {{item.categoryName}}
+          td {{item.countConfirmed}}
+          td {{item.countNotConfirmed}}
+          td
+            a(a href="#/admin/commentdetails/"+"{{item.id}}")
+              i.fa.fa-comments-o

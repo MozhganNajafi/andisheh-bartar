@@ -1,0 +1,35 @@
+.padding-xxlarge.margin-xxlarge.CommentDetails
+
+  .row
+    .small-12.large-8.columns
+      table.table.table-striped(st-table='CommentDetailsViewModel.comments')
+        thead
+        tr
+          th نام نظردهنده
+          th ایمیل نظردهنده
+          th متن نظر
+          th خصوصی
+          th تایید
+          th تغییر وضعیت تایید
+        tbody
+        tr.body(ng-repeat='item in CommentDetailsViewModel.comments')
+          td {{item.name}}
+          td {{item.email}}
+          td {{item.context}}
+          td 
+            div(ng-if="!item.isPrivate")
+              i.fa.fa-times.alert
+            div(ng-if="item.isPrivate")
+              i.fa.fa-check.primary
+          td 
+            div(ng-if="!item.isConfirm")
+              i.fa.fa-times.alert
+            div(ng-if="item.isConfirm")
+              i.fa.fa-check.primary
+          td
+            div(ng-if="item.isConfirm")
+                button.alert.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
+                    i.fa.fa-times.white رد
+            div(ng-if="!item.isConfirm")
+                button.primary.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
+                    i.fa.fa-check.white تایید
