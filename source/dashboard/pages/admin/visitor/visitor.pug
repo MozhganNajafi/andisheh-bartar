@@ -1,0 +1,60 @@
+//- .visitor.margin-xxlarge
+//-     .title
+//-         div
+//-             h5 آمار بازدید
+//-         hr
+//-     .body
+//-         div.color
+//-             i.fa.fa-arrow-left
+//-             small کل بازدید : {{VisitorViewModel.visitors.allViewer}}
+//-         div.color 
+//-             i.fa.fa-arrow-left
+//-             small بازدید امروز : {{VisitorViewModel.visitors.todayViewer}}
+//-         div.color 
+//-             i.fa.fa-arrow-left
+//-             small بازدید دیروز : {{VisitorViewModel.visitors.yesterDayViewer}}
+//-         div.color
+//-             i.fa.fa-arrow-left
+//-             small بازدید این ماه : {{VisitorViewModel.visitors.currentMonthViewer}}
+//-         div.color 
+//-             i.fa.fa-arrow-left
+//-             small بازدید ماه قبل : {{VisitorViewModel.visitors.previousMonthViewer}}
+//-         div.color 
+//-             i.fa.fa-arrow-left
+//-             small تعداد کل پست ها : {{VisitorViewModel.visitors.countNews}}
+//-         div.color 
+//-             i.fa.fa-arrow-left
+//-             small زمان آخرین بازدید : {{VisitorViewModel.visitors.lastView}}
+//-         div.color 
+//-             i.fa.fa-arrow-left
+//-             small زمان آخرین پست : {{VisitorViewModel.visitors.lastEdit}}
+
+
+
+
+
+.padding-xxlarge.margin-xxlarge.comments
+
+  .row
+    .small-12.large-8.columns
+      table.table.table-striped(st-table='VisitorViewModel.visitors')
+        thead
+        tr
+            th کل بازدید
+            th بازدید امروز
+            th بازدید دیروز
+            th بازدید این ماه 
+            th بازدید ماه قبل
+            th تعداد کل پست ها 
+            th زمان آخرین بازدید
+            th زمان آخرین پست
+        tbody
+        tr.body(ng-model='VisitorViewModel.visitors')
+          td {{VisitorViewModel.visitors.allViewer}}
+          td {{VisitorViewModel.visitors.todayViewer}}
+          td {{VisitorViewModel.visitors.yesterDayViewer}}
+          td {{VisitorViewModel.visitors.currentMonthViewer}}
+          td {{VisitorViewModel.visitors.previousMonthViewer}}
+          td {{VisitorViewModel.visitors.countNews}}
+          td {{VisitorViewModel.visitors.lastView}}
+          td {{VisitorViewModel.visitors.lastEdit}}

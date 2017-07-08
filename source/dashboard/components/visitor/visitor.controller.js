@@ -16,27 +16,13 @@
             })
         }
         getVisitor();
-        $timeout(function updateVisitor() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var obj = JSON.parse(xhttp.response);
-                    // LogRest.post({'IpAddress': obj.ip}).then(function (){
-                    //    getVisitor(); 
-                    // })
-                }
-            };
-            xhttp.open("GET", "//freegeoip.net/json/?callback=", true);
-            xhttp.send();
-        }, 10000);
-        function getPersonalInfo() {
-            PersonalInfoRest.getList().then(function (response) {
-                vm.introduction = response.data.introduction;
+        
+        function updateVisitor() {
+            LogRest.post().then(function (){
+                getVisitor(); 
             })
         }
-
-        getPersonalInfo();
-
+        updateVisitor();
 
     }
 
