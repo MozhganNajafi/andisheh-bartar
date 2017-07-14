@@ -21,7 +21,7 @@
         context: vm.comment.context,
         newsId: $scope.newsId
       };
-      if (vm.comment.context == '' || vm.comment.email == '' || vm.comment.name == '') {
+      if (vm.comment.context == '' || vm.comment.name == '') {
         alert('لطفا همه موارد را وارد نمایید');
       } else {
         CommentRest.post(newComment).then(function () {

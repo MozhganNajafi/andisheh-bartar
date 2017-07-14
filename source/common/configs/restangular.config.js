@@ -8,7 +8,7 @@
 
   function RestangularConfig( RestangularProvider ) {
     RestangularProvider.setBaseUrl('http://server.abbasmoghadasi.com/api');
-
+    // RestangularProvider.setDefaultHeaders('Authorization');
     RestangularProvider
     .addResponseInterceptor(function( data, operation, what, url, response ) {
       var newResponse = [];

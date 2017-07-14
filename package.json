@@ -58,6 +58,7 @@
     "url": "^0.11.0"
   },
   "dependencies": {
+    "adm-dtp": "^1.2.0",
     "angular": "^1.6.4"
   }
 }
