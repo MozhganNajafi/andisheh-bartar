@@ -1,0 +1,36 @@
+.comment
+  .row.expanded
+    .small-12.large-5.column
+      select(ng-model="CommentViewModel.categoryId")
+        options(ng-repeat="category in CommentViewModel.categories",value="{{category.id}}") {{category.name}}
+    .small-12.large-5.column
+      select(ng-model="CommentViewModel.newsId")
+        options(ng-repeat="item in CommentViewModel.news",value="{{item.id}}") {{item.name}}
+    .small-12.large-5.column
+      button.button.primary(ng-click="CommentViewModel.getComments()") دریافت نظرات
+
+    .small-12.column
+      table.table.table-striped(st-table='CommentViewModel.comments')
+        thead
+        tr
+          th شناسه
+          th نام
+          th ایمیل
+          th نظر
+          th خصوصی
+          th تایید
+          th حذف
+        tbody
+        tr.body(ng-repeat='item in CommentViewModel.comments')
+          td {{item.id}}
+          td {{item.name}}
+          td {{item.email}}
+          td {{item.context}}
+          td {{item.isprivate}}
+          td
+            a(ng-click='CommentViewModel.confirm(item.id)')
+              i.fa.fa-pencil
+          td
+            a(ng-click='CommentViewModel.remove(item.id)')
+              i.fa.fa-trash
+  
