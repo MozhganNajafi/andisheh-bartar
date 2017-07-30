@@ -1,0 +1,42 @@
+.filemanager
+  .topbar(style='background-color: #e8e8e8')
+    .row.expanded
+      .small-12.column
+        .top-bar.no-background
+          .top-bar-left
+            ul.no-bullet.padding-xxlarge-top
+              li.display-inline-block.padding-small-left
+                a.link-gray.hover-primary(ng-click='$ctrl.listView()')
+                  i.fa.fa-list(aria-hidden="true")
+              li.display-inline-block.padding-small-left
+                a.link-gray.hover-primary(ng-click='$ctrl.gridView()')
+                  i.fa.fa-th-large(aria-hidden="true")
+          .top-bar-right
+            .padding-xxlarge-top
+              h6.no-padding.no-margin.text-black مدیریت فایل ها / {{$ctrl.folderName}}
+  toolbar(ng-if="$ctrl.mode", mode="{{$ctrl.mode}}")
+  .body.background-white
+    .row.expanded
+      .small-12.large-3.columns(ng-show="$ctrl.mode == 'full'")
+        .padding-xxlarge(style='border-left: 1px solid #ddd;')
+          h6 فولدرهای شما
+          treeview(ng-model="$ctrl.folders", selected-node="selectedNode")
+      .small-12.large-7.columns(
+        ng-class="{'large-7': $ctrl.mode == 'full', 'large-10': $ctrl.mode != 'full'}"
+      )
+        .padding-xxlarge
+          explorer(files='$ctrl.files', selected-file="$ctrl.selectedFile", selected-files="$ctrl.selectedFiles",  property-file= "$ctrl.propertyFile", selected-node="$ctrl.selectedNode")
+      .small-12.large-2.columns
+        .padding-xxlarge
+          property(propertyfile = "$ctrl.propertyFile",selected-node="$ctrl.selectedNode")
+
+  .footer(style='background-color: #e8e8e8')
+    .row.expanded
+      .small-12.large-8.columns
+        .padding-xxlarge
+          filemanager-footer(files='$ctrl.files', selected-files="$ctrl.selectedFiles")
+         
+      .small-12.large-4.columns
+        .text-left.padding-xxlarge
+          div(ng-show="$ctrl.displayMode=='popup'")
+            button.button.secondary(ng-click="$ctrl.close()") انتخاب و بستن پنجره مدیریت فایل ها

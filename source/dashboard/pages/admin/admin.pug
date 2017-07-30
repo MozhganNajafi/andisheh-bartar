@@ -8,16 +8,16 @@
             span مدیریت مطالب
           ul.content
             li 
-              a(href="#!/admin/addcontent")
+              a(href="#/admin/addcontent")
                 i.fa.fa-plus
                   span افزودن خبر
             li 
-              a(href="#!/admin/editcontent")
+              a(href="#/admin/editcontent")
                 i.fa.fa-pencil
                   span ویرایش خبر
 
       li
-        a(href="#!/admin/link")
+        a(href="#/admin/link")
           i.fa.fa-link
             span مدیریت لینک ها
       li
@@ -29,9 +29,13 @@
           i.fa.fa-eye
             span مدیریت بازدیدکنندگان
       li 
-        a(href="#!/admin/profile")
+        a(href="#/admin/profile")
           i.fa.fa-graduation-cap
             span ویرایش اطلاعات شخصی
+      li 
+        a(href="#/admin/filemanager")
+          i.fa.fa-graduation-cap
+            span مدیریت تصاویر
   
   .small-12.large-9.columns.no-padding
     div(ui-view='')

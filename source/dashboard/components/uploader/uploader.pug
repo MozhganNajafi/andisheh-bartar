@@ -1,0 +1,70 @@
+.uploader
+  h6 بارگذاری فایل
+  hr(size=1)
+  div#select
+    p
+      span.font-small برای بارگذاری فایل
+        button.button.primary(
+          ngf-multiple='true',
+          ngf-select='$ctrl.startUploading(null, null, $newFiles)',         
+          ngf-max-total-size='30MB',
+          ngf-max-files='true',
+          ngf-keep="'distinct'",         
+           ) کلیک کنید
+        span.font-small (حداکثر حجم فایل 30MB )
+  hr(size=1)
+
+  div#overall
+    div(ng-repeat="file in $ctrl.files")
+      div.row
+        div.small-12.large-1.columns
+          i.fa.fa-upload.fa-fw
+        div.small-12.large-3.columns
+          div.text-right
+            span.font-small {{file.name}}
+        div.small-12.large-2.columns
+          div.text-left.dir-ltr
+            span.font-small {{file.size | filesize}}
+        div.small-12.large-4.columns
+          div.progress(
+            role="progressbar", 
+            ng-show="(file.status.progress || file.status.success)"
+            aria-valuetext="file.progress")
+            span.progress-meter(style="width: {{file.progress}}%")
+              p.progress-meter-text
+                span.font-small {{file.progress}}%
+          div.background-alert.padding-small(
+            ng-show="!$ctrl.uploadIsInProgress && !file.status.success")
+            p.no-padding.no-margin.font-small.text-center.text-white فایل مورد نظر آپلود نشد!
+        div.small-12.large-2.columns
+          i.fa.fa-check-circle.fa-fw(ng-if="file.status.success")
+          a(ng-click="$ctrl.retry(file)", 
+          ng-show="!$ctrl.uploadIsInProgress && !file.status.success")
+            i.fa.fa-repeat.fa-fw
+          a(ng-click="file.abort()", 
+          ng-show="file.status.progress")
+            i.fa.fa-times-circle-o.fa-fw
+          a(ng-click="$ctrl.remove(file)", 
+          ng-show="!$ctrl.uploadIsInProgress && !file.status.success")
+            i.fa.fa-times-circle-o.fa-fw
+    //- div(ng-repeat="file in $ctrl.invalidFiles")
+    //-   div.row
+    //-     div.small-12.large-1.columns
+    //-       i.fa.fa-upload.fa-fw
+    //-     div.small-12.large-3.columns
+    //-       div.text-right
+    //-         span.font-small {{file.name}}
+    //-     div.small-12.large-2.columns
+    //-       div.text-left.dir-ltr
+    //-         span.font-small {{file.size | filesize}}
+    //-     div.small-12.large-4.columns
+    //-       div.background-alert.padding-small(
+    //-         ng-show="!$file.status.progress && !file.status.success")
+    //-         p.no-padding.no-margin.font-small.text-center.text-white فایل مورد نظر آپلود نشد!
+    //-     div.small-12.large-2.columns
+    //-       a(ng-show="!$file.status.progress && !file.status.success", ng-click="$ctrl.removeInvalidFile(file)")
+    //-         i.fa.fa-times-circle-o.fa-fw
+
+
+    div.text-left
+      button.button.primary(ng-disabled="$ctrl.uploadIsInProgress" ng-click="$ctrl.close()") بستن

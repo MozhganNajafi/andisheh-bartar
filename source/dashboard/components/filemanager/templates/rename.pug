@@ -1,0 +1,8 @@
+div
+  h6 تغییر نام پوشه
+  hr(size=1)
+  form
+    label(for='rename') نام جدیدی برای فولدر مورد نظر انتخاب کنید 
+    input#rename(type='text', ng-model='FileManagerRenameViewModel.folder.name')
+
+    button.button(ng-click='FileManagerRenameViewModel.rename()') تغییر نام

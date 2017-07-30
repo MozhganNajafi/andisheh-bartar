@@ -41,6 +41,7 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/home/home.controller.js',
               '/dashboard/pages/home/home.css'
+              
             ]);
           }]
         },
@@ -315,6 +316,32 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/profile/profile.controller.js',
               '/dashboard/pages/admin/profile/profile.css'
+            ]);
+          }]
+        },
+        ncyBreadcrumb: {
+          label: 'مدیریت اطلاعات شخصی'
+        }
+      })
+      .state('admin.filemanager', {
+        url: '/filemanager',
+        templateUrl: 'dashboard/pages/admin/filemanageradmin/filemanageradmin.html',
+        controller: 'FileManagerAdminController',
+        resolve: {
+          controller: ['$ocLazyLoad', function ($ocLazyLoad) {
+            return $ocLazyLoad.load([
+              '/dashboard/pages/admin/filemanageradmin/filemanageradmin.controller.js',
+              '/dashboard/pages/admin/filemanageradmin/filemanageradmin.css',
+              '/assets/stylesheets/dashboard.css',
+              '/bower_components/ng-dialog/css/ngDialog-theme-default.css',
+              '/bower_components/ng-dialog/css/ngDialog.css',
+              '/bower_components/ng-dialog/js/ngDialog.js',
+              '/bower_components/toastr/toastr.css',
+              '/bower_components/toastr/toastr.js',
+              '/bower_components/angular-tree-control/css/tree-control.css',
+              '/bower_components/angular-tree-control/angular-tree-control.js',
+              // '/bower_components/angular-filemanager/dist/angular-filemanager.min.css',
+              // '/bower_components/angular-filemanager/dist/angular-filemanager.min.js'
             ]);
           }]
         },

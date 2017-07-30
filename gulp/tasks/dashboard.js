@@ -43,7 +43,7 @@ gulp.task('dashboard.javascripts', function() {
     paths.src + '/dashboard/configs/**/*.js',
     // paths.src + '/dashboard/models/**/*.js',
     paths.src + '/dashboard/services/**/*.js',
-    paths.src + '/dashboard/components/**/*.js',
+    paths.src + '/dashboard/components/**/**/*.js',
     paths.src + '/dashboard/directives/**/*.js'
   ])
   .pipe(sourcemap.init())

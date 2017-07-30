@@ -1,0 +1,38 @@
+<manifest alg="2" build="2015.1.2.344" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive" exportTarget="other" domain="IsfahanEx.com" resolutions="1x" timestamp="1485935305937">
+  <folder name="css">
+    <file name="site_global.css" crc="131700929"/>
+    <file name="index.css" crc="353267143" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="207176553" ref="index"/>
+    <file name="museutils.js" crc="3790713428" ref="index"/>
+    <file name="whatinput.js" crc="84559013" ref="index"/>
+    <file name="webpro.js" crc="329496574" ref="index"/>
+    <file name="musewpslideshow.js" crc="394033048" ref="index"/>
+    <file name="jquery.museoverlay.js" crc="4265131668" ref="index"/>
+    <file name="touchswipe.js" crc="497316881" ref="index"/>
+    <file name="pie.js" crc="3827607177" ref="index"/>
+    <file name="jquery.musepolyfill.bgsize.js" crc="3918880840" ref="index"/>
+    <file name="jquery.watch.js" crc="4244854265" ref="index"/>
+  </folder>
+  <folder name="images">
+    <file name="singlepage.jpg" crc="25531634" seo="true" ref="index"/>
+    <file name="blank.gif" crc="4208392903" ref="index"/>
+    <file name="singlepage2.jpg" crc="4145998940" seo="true" ref="index"/>
+    <file name="singlepage3.jpg" crc="3845105376" seo="true" ref="index"/>
+    <file name="singlepage4.jpg" crc="4165932339" seo="true" ref="index"/>
+    <file name="loading.gif" crc="3815509949" ref="index"/>
+    <file name="cms.png" crc="70055891" seo="true" ref="index"/>
+    <file name="u420-4.png" crc="4095536554" ref="index"/>
+    <file name="u578-r.png" crc="194022296" ref="index"/>
+    <file name="isfahanfair - logo - white.png" crc="32546104" seo="true" ref="index"/>
+    <file name="u409-8.png" crc="4167201914" ref="index"/>
+    <file name="bpms.png" crc="180153448" seo="true" ref="index"/>
+    <file name="u417-4.png" crc="4182580174" ref="index"/>
+    <file name="coming-soon.png" crc="448892621" seo="true" ref="index"/>
+    <file name="crm.png" crc="4177684386" seo="true" ref="index"/>
+    <file name="u414-4.png" crc="2845562" ref="index"/>
+    <file name="u521-6.png" crc="189023760" ref="index"/>
+  </folder>
+  <file name="index.html" crc="241103392" seo="true" mt="1485935299243" redirect="true"/>
+</manifest>

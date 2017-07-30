@@ -1,0 +1,11 @@
+div
+  h6 پوشه جدید
+  hr(size=1)
+  form
+    label(for='name') نام پوشه 
+    input#name(type='text', ng-model='FileManagerNewFolderViewModel.folder.name')
+
+    label(for='description') توضیحات
+    input#title(type='text', ng-model='FileManagerNewFolderViewModel.folder.description')
+
+    button.button(ng-click='FileManagerNewFolderViewModel.add()') افزودن

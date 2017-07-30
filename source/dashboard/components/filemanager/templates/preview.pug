@@ -1,0 +1,12 @@
+div.padding-xxlarge
+  div(ng-switch='FileManagerPreviewViewModel.file.fileTypeName')
+    div(ng-switch-when='image')
+      img(src='/frontend/Uploads/Folders/{{FileManagerPreviewViewModel.file.url}}')
+    div(ng-switch-when='audio')
+      i.fa.fa-file-audio-o.fa-4x
+    div(ng-switch-when='video')
+      i.fa.fa-file-video-o.fa-4x
+    div(ng-switch-when='zip')
+      i.fa.fa-fw.fa-folder-open.fa-4x
+    div(ng-switch-default='')
+      i.fa.fa-file-o.fa-4x

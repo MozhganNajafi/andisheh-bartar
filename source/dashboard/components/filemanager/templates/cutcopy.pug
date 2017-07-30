@@ -1,0 +1,9 @@
+.row
+    .small-12.columns
+        h6 انتقال / کپی فایل
+        hr(size=1)
+        .padding-xxlarge
+            h6 فولدرهای شما
+            treeview(ng-model="FileManagerCutCopyViewModel.folders", selected-node="selectedNode")
+        button.button(type='button',ng-click='FileManagerCutCopyViewModel.cutorcopy()') {{FileManagerCutCopyViewModel.buttonText}}
+
