@@ -19,7 +19,7 @@
       for (var i = 0; i < object.length; i++) {
         var item = object[i];
         var label = item["name"];
-        var title = item["title"] || "پوشه بدون نام";
+        var name = item["name"] || "پوشه بدون نام";
         var parentid = item["parentId"];
         var id = item["id"];
         var type = item["type"];
@@ -28,7 +28,7 @@
           var item = {
             parentid: parentid,
             label: label,
-            title: title,
+            name: name,
             id: id,
             type: type
           };
@@ -41,7 +41,7 @@
           children[id] = {
             parentid: parentid,
             label: label,
-            title: title,
+            name: name,
             id: id,
             type: type
           };

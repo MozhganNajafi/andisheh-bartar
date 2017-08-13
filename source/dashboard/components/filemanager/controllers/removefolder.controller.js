@@ -4,9 +4,9 @@
 
     angular
         .module('DashboardApplication')
-        .controller('FileManagerRemoveFolderController', ['$scope', '$q', 'Event', 'FoldersRest', 'toastr', FileManagerRemoveFolderController]);
+        .controller('FileManagerRemoveFolderController', ['$scope', '$q', 'Event', 'FoldersRest', FileManagerRemoveFolderController]);
 
-    function FileManagerRemoveFolderController($scope, $q, Event, FoldersRest, toastr) {
+    function FileManagerRemoveFolderController($scope, $q, Event, FoldersRest) {
         var vm = this;
         var folderId = $scope.ngDialogData.folderId;
 
@@ -19,7 +19,7 @@
                 console.log("FoldersRest");
                 debugger;
                 Event.publish('FOLDERS_TREEVIEW_UPDATED');
-                toastr.success('فولدر با موفقیت حذف شد', 'انجام شد!');
+                alert('فولدر با موفقیت حذف شد', 'انجام شد!');
                 $defer.resolve();
             }, function (error) {
                 $defer.reject(error);

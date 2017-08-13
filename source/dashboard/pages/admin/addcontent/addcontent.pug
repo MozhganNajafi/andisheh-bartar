@@ -21,8 +21,7 @@
     .small-12.large-6.columns
       div
         span برچسب
-        input(type='text', ng-model='AddContentViewModel.content.keywords')
-    
+        tags-input(ng-model="AddContentViewModel.content.labels",style="height:50px")
     .small-12.large-4.columns
       div
         span تاریخ خبر

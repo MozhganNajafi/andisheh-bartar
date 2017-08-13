@@ -10,6 +10,7 @@
 
     var vm = this;
     vm.save = save;
+    vm.tags = [];
     vm.content = {
       subject: '',
       body: '',
@@ -71,23 +72,27 @@
     getCategories();
 
     function save() {
+
+      vm.content.labels.forEach(function(element) {
+        vm.tags.push(element.text)
+      }, this);
       var newArticle = {
         subject: vm.content.subject,
         body: vm.content.body,
         categoryId: vm.content.categoryId,
         keywords: vm.content.keywords,
-        submitDate: vm.content.submitDate,
+        createDate: vm.content.submitDate,
         AuthorId: 1,
-        Labels: ['label1', 'label2']
+        labels: vm.tags
       };
-      if (vm.content.categoryId === '') {
-        alert('وارد کردن گروه خبر الزامیست');
-      } else {
+      // if (vm.content.categoryId === '') {
+      //   alert('وارد کردن گروه خبر الزامیست');
+      // } else {
         NewsRest.post(newArticle).then(function () {
           alert('خبر با موفقیت ثبت شد.!');
           vm.content = {};
         });
-      }
+      // }
     }
 
 

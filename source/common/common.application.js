@@ -6,6 +6,7 @@
     'ui.router',
     'oc.lazyLoad',
     'restangular',
+ 
     'ui.tinymce'
   ]);
 

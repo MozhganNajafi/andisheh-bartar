@@ -12,7 +12,7 @@
     return {
 
       getUploadsFolder: function() {
-        return 'http://localhost:5000/content/folders';
+        return 'http://server.abbasmoghadasi.com/content/folders';
       },
 
       LANGUAGES: {

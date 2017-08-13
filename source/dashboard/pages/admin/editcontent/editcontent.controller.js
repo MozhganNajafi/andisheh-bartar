@@ -15,6 +15,8 @@
     vm.update = update;
     vm.save = save;
     vm.cancel = cancel;
+    vm.tags = [];
+    vm.labels = [];
 
     vm.tinymceOptions = {
       directionality: 'rtl',
@@ -80,11 +82,18 @@
       vm.selectedId = id;
       NewsRest.one(vm.selectedId).get().then(function (response) {
         var news = response.entity.data;
+        if(news.labels.length != 0){
+          news.labels.forEach(function(element) {
+          vm.tags.push(element.name);
+        }, this);
+        }
+        
         vm.selectedItem.subject = news.subject;
         vm.selectedItem.body = news.body;
         vm.selectedItem.categoryId = news.categoryId;
         vm.selectedItem.keywords = news.keywords;
-        vm.selectedItem.submitDate  = news.submitDate
+        vm.selectedItem.labels = vm.tags;
+        vm.selectedItem.submitDate  = news.createDate
 
       });
     }
@@ -102,7 +111,11 @@
     function save() {
       debugger;
       vm.selectedItem.authorId = 1;
-      vm.selectedItem.labels = ['label1', 'label2'];
+      
+      vm.selectedItem.labels.forEach(function(element) {
+        vm.labels.push(element.text)
+      }, this);
+      vm.selectedItem.labels = vm.labels;
       NewsRest.one(vm.selectedId).customPUT(vm.selectedItem).then(function (response) {
         if (response.succeeded) {
           alert('ویرایش با موفقیت انجام شد');

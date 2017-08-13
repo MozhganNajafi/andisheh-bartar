@@ -4,9 +4,9 @@
 
   angular
     .module('DashboardApplication')
-    .controller('FileManagerRenameController', ['$scope', '$q', 'Event', 'FoldersRest','toastr', FileManagerRenameController]);
+    .controller('FileManagerRenameController', ['$scope', '$q', 'Event', 'FoldersRest', FileManagerRenameController]);
 
-  function FileManagerRenameController($scope, $q, Event, FoldersRest,toastr) {
+  function FileManagerRenameController($scope, $q, Event, FoldersRest) {
 
     var vm = this;
     var folderId = $scope.ngDialogData.folderId;
@@ -21,7 +21,7 @@
     function rename() {
       vm.response.entity = vm.folder;
       if (vm.folder.name == "") {
-        toastr.error('وارد کردن نام الزامیست', 'انجام نشد!');
+        alert('وارد کردن نام الزامیست', 'انجام نشد!');
       } else {
         var $defer = $q.defer();
         vm.response.customPUT(vm.response.entity).then(function () {

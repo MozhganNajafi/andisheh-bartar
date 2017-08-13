@@ -11,7 +11,7 @@ debugger;
     var vm = this;
 
     var folderId = $scope.$parent.ngDialogData.folderId;
-    var fileApiUrl = 'http://localhost:5000/api/file';
+    var fileApiUrl = 'http://server.abbasmoghadasi.com/api/File';
 
     vm.files = [];
     vm.startUploading = startUploading;

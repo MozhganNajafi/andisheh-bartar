@@ -160,15 +160,16 @@
         url: '/admin',
         abstract: true,
         templateUrl: 'dashboard/pages/admin/admin.html',
-        // controller: 'AdminController',
-        // controllerAs: 'AdminViewModel',
+        controller: 'AdminController',
+        controllerAs: 'AdminViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/assets/stylesheets/foundation.css',
               '/assets/stylesheets/fontawesome.css',
               '/dashboard/pages/admin/admin.css',
-              '/dashboard/pages/home/home.rest.services.js'
+              '/dashboard/pages/home/home.rest.services.js',
+              '/dashboard/pages/admin/admin.controller.js'
 
             ]);
           }]
@@ -204,7 +205,9 @@
               '/dashboard/pages/home/home.rest.services.js',
               '/dashboard/pages/admin/addcontent/addcontent.rest.services.js',
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
-              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css'            
+              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css',
+              '/bower_components/ng-tags-input/ng-tags-input.css', 
+              '/bower_components/ng-tags-input/ng-tags-input.js',          
               // '/bower_components/ngMask/dist/ngMask.min.js'    
             ]);
           }]
@@ -226,7 +229,9 @@
               '/bower_components/angular-smart-table/dist/smart-table.js',
               '/dashboard/pages/admin/editcontent/editcontent.rest.services.js',
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
-              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css'                
+              '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css',
+              '/bower_components/ng-tags-input/ng-tags-input.css', 
+              '/bower_components/ng-tags-input/ng-tags-input.js',                
               // '/bower_components/ngMask/dist/ngMask.min.js'                   
             ]);
           }]
@@ -261,7 +266,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/comment/view/comment.controller.js',
-              '/dashboard/pages/admin/comment/view/comment.css'
+              '/dashboard/pages/admin/comment/view/comment.css',
+              '/dashboard/pages/admin/comment/comment.rest.services.js'
             ]);
           }]
         },
@@ -279,7 +285,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/comment/details/comment-details.controller.js',
-              '/dashboard/pages/admin/comment/details/comment-details.css'
+              '/dashboard/pages/admin/comment/details/comment-details.css',
+              '/dashboard/pages/admin/comment/comment.rest.services.js'
             ]);
           }]
         },
@@ -340,8 +347,8 @@
               '/bower_components/toastr/toastr.js',
               '/bower_components/angular-tree-control/css/tree-control.css',
               '/bower_components/angular-tree-control/angular-tree-control.js',
-              // '/bower_components/angular-filemanager/dist/angular-filemanager.min.css',
-              // '/bower_components/angular-filemanager/dist/angular-filemanager.min.js'
+              '/bower_components/ng-file-upload/ng-file-upload.js',
+              '/bower_components/ng-file-upload-shim/ng-file-upload-shim.js'
             ]);
           }]
         },

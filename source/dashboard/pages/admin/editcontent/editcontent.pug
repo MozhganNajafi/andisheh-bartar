@@ -39,8 +39,8 @@ div(ng-if="EditContentViewModel.updateMode")
   .row
     .small-12.columns.large-6.columns
       div
-        span کلمات کلیدی
-        input(type='text', ng-model='EditContentViewModel.selectedItem.keywords')
+        span برچسب
+        tags-input(ng-model="EditContentViewModel.selectedItem.labels",style="height:50px")
 
     .small-12.columns.large-6.columns
       div

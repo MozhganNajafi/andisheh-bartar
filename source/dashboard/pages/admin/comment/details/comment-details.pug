@@ -11,6 +11,7 @@
           th خصوصی
           th تایید
           th تغییر وضعیت تایید
+          th حذف
         tbody
         tr.body(ng-repeat='item in CommentDetailsViewModel.comments')
           td {{item.name}}
@@ -33,3 +34,6 @@
             div(ng-if="!item.isConfirm")
                 button.primary.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
                     i.fa.fa-check.white تایید
+          td
+            a(ng-click='CommentDetailsViewModel.remove(item.id)')
+              i.fa.fa-trash

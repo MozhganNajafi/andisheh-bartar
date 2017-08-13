@@ -6,47 +6,48 @@
               a.link-gray.hover-black(ng-click="$ctrl.openNewFolderPopup()")
                 .text-center
                   .icon
-                    i(class="icon-new-folder fa-2x")
+                    i(class="fa fa-plus fa-2x")
                   .title
                     span.font-small پوشه جدید
             li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
               a.link-gray.hover-black(ng-click="$ctrl.openFileUploaderPopup()")
                 .text-center
                   .icon
-                    i(class="icon-new-folder fa-2x")
+                    i(class="fa fa-upload fa-2x")
                   .title
                     span.font-small بارگذاری
-            li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
-              a.link-gray.hover-black(ng-click="$ctrl.openCutPopup()")
-                .text-center
-                  .icon
-                    i(class="icon-new-folder fa-2x")
-                  .title
-                    span.font-small برش
-            li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
-              a.link-gray.hover-black(ng-click="$ctrl.openCopyPopup()")
-                .text-center
-                  .icon
-                    i(class="icon-new-folder fa-2x")
-                  .title
-                    span.font-small کپی
             li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
               a.link-gray.hover-black(ng-click="$ctrl.openRenamePopup()")
                 .text-center
                   .icon
-                    i(class="icon-new-folder fa-2x")
+                    i(class="fa fa-pencil fa-2x")
                   .title
-                    span.font-small تغییر نام
+                    span.font-small تغییرنام فلدر
+            li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
+              a.link-gray.hover-black(ng-click="$ctrl.openRenameFilePopup()")
+                .text-center
+                  .icon
+                    i(class="fa fa-pencil fa-2x")
+                  .title
+                    span.font-small تغییرنام فایل
+            li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
+              a.link-gray.hover-black(ng-click="$ctrl.removeFolder()")
+                .text-center
+                  .icon
+                    i(class="fa fa-trash fa-2x")
+                  .title
+                    span.font-small حذف فلدر
             li.display-inline-block.padding-xxlarge-left(style = "margin-left:20px;float: right")
               a.link-gray.hover-black(ng-click="$ctrl.removeFile()")
                 .text-center
                   .icon
-                    i(class="icon-new-folder fa-2x")
+                    i(class="fa fa-trash fa-2x")
                   .title
-                    span.font-small حذف
+                    span.font-small حذف فایل
 
 .small-12.large-12.columns.no-padding
-    .small-4.large-4.columns.no-padding
+    .small-3.large-3.columns.padding-toolarge
+        h6 فایل های شما
         script(type="text/ng-template" id="treecontrol.html")
           div(class="jstree-rtl jstree-default")
             ul.treeview.jstree-container-ul.jstree-children
@@ -67,36 +68,36 @@
           filter-expression='getFilter()',
           filter-comparator='getFilterComparator()')
           i.jstree-icon.jstree-themeicon 
-          span {{node.name}}
-    .small-8.large-8.columns.no-padding
-      .explorer-view
+          span {{node.label}}
+    .small-8.large-8.columns.padding-toolarge-top
+      .explorer-view(style="border: solid #36b1bf;")
         //- viewMode = grid
-        div(ng-if='viewMode=="grid"')
-          .explorer-grid-mode
-            ul.no-bullet.grid
-              li.explorer(
-                ng-class="{'selected': file.selected}", 
-                ng-repeat='file in ExplorerViewViewModel.files')
-                a.padding-large.link-gray.hover-black.container(
-                  ng-click='selectItem(file)', 
-                  ng-dblclick='preview(file)')
-                  .text-center(ng-switch="file.fileTypeName")
-                    div(ng-switch-when='image') 
-                      img(src='http://localhost:5000/content/Folders/{{file.url}}', width='84px')
-                    div(ng-switch-when='audio')
-                      i.fa.fa-file-audio-o.fa-3x
-                    div(ng-switch-when='video')
-                      i.fa.fa-file-video-o.fa-3x
-                    div(ng-switch-when='zip')
-                      i.fa.fa-fw.fa-folder-open.fa-3x
-                    div(ng-switch-default)
-                      i.fa.fa-file-o.fa-3x
-                    .padding-large-top
-                      span.font-small.no-select
-                        | {{file.name || file.title | limitTo: 15 }}
+        //- div
+        //-   .explorer-grid-mode
+        //-     ul.no-bullet.grid
+        //-       li.explorer(
+        //-         ng-class="{'selected': file.selected}", 
+        //-         ng-repeat='file in $ctrl.files')
+        //-         a.padding-large.link-gray.hover-black.container(
+        //-           ng-click='$ctrl.selectItem(file)', 
+        //-           ng-dblclick='preview(file)')
+        //-           .text-center(ng-switch="file.fileTypeName")
+        //-             div(ng-switch-when='image') 
+        //-               img(src='http://server.abbasmoghadasi.com/Uploads/{{file.url}}', width='84px')
+        //-             div(ng-switch-when='audio')
+        //-               i.fa.fa-file-audio-o.fa-3x
+        //-             div(ng-switch-when='video')
+        //-               i.fa.fa-file-video-o.fa-3x
+        //-             div(ng-switch-when='zip')
+        //-               i.fa.fa-fw.fa-folder-open.fa-3x
+        //-             div(ng-switch-default)
+        //-               i.fa.fa-file-o.fa-3x
+        //-             .padding-large-top
+        //-               span.font-small.no-select
+        //-                 | {{file.name || file.title | limitTo: 15 }}
 
         //- viewMode = list
-        div(ng-if='viewMode=="list"')
+        div
           .explorer-list-mode
             .header.padding-large-bottom
               .row
@@ -105,22 +106,20 @@
                 .small-12.large-5.columns
                   span نام
                 .small-12.large-2.columns
-                  span اندازه
-                .small-12.large-3.columns
-                  span آخرین تغییر
+                  span لینک
 
             ul.no-bullet.list
               li.explorer(
               ng-class="{'selected': file.selected}",
-              ng-repeat='file in ExplorerViewViewModel.files')
+              ng-repeat='file in $ctrl.files')
                 a.padding-large.link-gray.hover-black(
-                  ng-click='selectItem(file)',
+                  ng-click='$ctrl.selectItem(file)',
                   ng-dblclick='preview(file)')
                   .row
                     .small-12.large-2.columns
                       div(ng-switch='file.fileTypeName')
                         div(ng-switch-when='image') 
-                          img(src='http://localhost:5000/content/Folders/{{file.url}}', width='24px')
+                          img(src='http://server.abbasmoghadasi.com/Uploads/{{file.url}}', width='24px')
                         div(ng-switch-when='audio')
                           i.fa.fa-file-audio-o.fa-2x
                         div(ng-switch-when='video')
@@ -130,6 +129,4 @@
                     .small-12.large-5.columns
                       h6.font-small.no-select.no-padding.no-margin {{file.name || file.title | limitTo: 45 }}
                     .small-12.large-2.columns
-                      h6.font-small.no-select.no-padding.no-margin fileize
-                    .small-12.large-3.columns
-                      h6.font-small.no-select.no-padding.no-margin {{file.creationDateTime}}
+                      a(href="http://server.abbasmoghadasi.com/Uploads/{{file.url}}",target="_blank") لینک

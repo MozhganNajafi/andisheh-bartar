@@ -7,81 +7,97 @@
         .controller('FileManagerController',[ '$scope', 'TreeviewOptions', 'TreeviewHelper','ArrayHelper', 'FilesRest', 'FoldersRest', 'Event', 'Dialog', FileManagerController]);
 
     function FileManagerController($scope, TreeviewOptions, TreeviewHelper, ArrayHelper, FilesRest, FoldersRest, Event, Dialog) {
-        var vm = this;
-        // var TController = $scope.$ctrl;
-        // vm.items = [
-        //     { title: 'پوشه جدید', icon: 'icon-new-folder', click: openNewFolderPopup }, 
-        //     { title: 'بارگذاری', icon: 'icon-upload', click: openFileUploaderPopup }, 
-        //     { title: 'برش', icon: 'icon-cut' , click: openCutPopup }, 
-        //     { title: 'کپی', icon: 'icon-copy', click: openCopyPopup}, 
-        //     { title: 'تغییر نام', icon: 'icon-rename', click: openRenamePopup }, 
-        //     // { title: 'انتقال به', icon: 'icon-move-to' }, 
-        //     // { title: 'کپی در', icon: 'icon-copy-to' }, 
-        //     { title: 'حذف', icon: 'icon-delete', click: TController.removeFile }, 
-        //     { title: 'انتخاب همه', icon: 'icon-select-all', click: TController.selectAll }
-        //     ];
-        // console.log(vm.items);
-
-        //tree
-        vm.treeOptions = TreeviewOptions.get();
+      var vm = this;
+      var selectedMultiFile = [];
+      TreeviewOptions.reset();
+      TreeviewOptions.set(vm.options);
+      vm.treeOptions = TreeviewOptions.get();
         // $scope.folders = [];
-    $scope.$watch('folders', function () {
-    $scope.folders = vm.folders;
-      var nodes = TreeviewHelper.parseJSON($scope.folders);
-        vm.ngModel = ArrayHelper.clean(nodes, null);
+      // vm.selectNode = function( node ) {
+      //   vm.selectedNode = node;
+      // };
+      vm.close = close;
+      vm.files = [];
+      vm.selectedFile;
+      vm.selectedFiles = [];
+      vm.selectedNode;
+      vm.openNewFolderPopup = openNewFolderPopup;
+      vm.openFileUploaderPopup = openFileUploaderPopup;
+      vm.openCutPopup = openCutPopup;
+      vm.openCopyPopup = openCopyPopup;
+      vm.openRenamePopup = openRenamePopup;
+      vm.removeFile = removeFile;
+      vm.removeFolder = removeFolder;
+      vm.selectAll = selectAll;
+
+    function getFoldersList() {
+      FoldersRest.getList().then(function (response) {
+        vm.folders = response.data;
+        $scope.$watch('folders', function () {
+          $scope.folders = vm.folders;
+          var nodes = TreeviewHelper.parseJSON($scope.folders);
+          vm.ngModel = ArrayHelper.clean(nodes, null);
+           if (vm.nodeRefForSelect === undefined && vm.selectedNode === undefined) {
+          vm.nodeRefForSelect = vm.ngModel[0];
+          // for external use cases. as result of treeview node selection for other
+          // components
+          vm.selectedNode = vm.ngModel[0];
+          $scope.selectedNode = vm.selectedNode;
+        } else if (vm.nodeRefForSelect === undefined && vm.selectedNode !== undefined) {
+          vm.nodeRefForSelect = vm.ngModel[vm.ngModel.length - 1];
+          vm.selectedNode = vm.ngModel[vm.ngModel.length - 1];
+          $scope.selectedNode = vm.selectedNode;
+        } else { //for selected new folder
+          vm.nodeRefForSelect = JSON.parse(JSON.stringify(vm.nodeRefForSelect));
+          vm.selectedNode = JSON.parse(JSON.stringify(vm.selectedNode));
+          $scope.selectedNode = vm.selectedNode;
+        }
         // for internal use cases of treeview
-        vm.nodeRefForSelect = vm.ngModel[0];
-        // for external use cases. as result of treeview node selection for other
-        // components
-        vm.selectedNode = vm.ngModel[0];
-    });
+        //   vm.nodeRefForSelect = vm.ngModel[0];
+        // // for external use cases. as result of treeview node selection for other
+        // // components
+        //   vm.selectedNode = vm.ngModel[0];
+       
+      });
+      });
+    }
 
-    vm.selectNode = function( node ) {
-      vm.selectedNode = node;
+    vm.selectNode = function (node) {
+      if (vm.selectedNode && vm.selectedNode.id && vm.selectedNode.id == node.id)
+        vm.selectedNode = null;
+      else
+        vm.selectedNode = node;
+        $scope.selectedNode = vm.selectedNode;
+      // if (node) {
+      //   vm.folderId = node.id;
+      //   vm.folderName = node.Name;
+      //   vm.selectedNode = node;
+      //   getFiles();
+      // } else {
+      //   vm.folderId = null;
+      //   vm.folderName = " ";
+      //   getFiles();
+      // }
     };
+    getFoldersList();
 
-        vm.close = close;
-
-    vm.files = [];
-    vm.selectedFile;
-    vm.selectedFiles;
-    vm.selectedNode;
-
-
-    vm.openNewFolderPopup = openNewFolderPopup;
-    vm.openFileUploaderPopup = openFileUploaderPopup;
-    vm.openCutPopup = openCutPopup;
-    vm.openCopyPopup = openCopyPopup;
-    vm.openRenamePopup = openRenamePopup;
-    vm.removeFile = removeFile;
-    vm.removeFolder = removeFolder;
-    vm.selectAll = selectAll;
-
-    // function getFoldersList() {
-    //   FoldersRest.getList().then(function (response) {
-    //     vm.folders = response.data;
-    //   });
-    // }
-    // getFoldersList();
-
-    vm.folders = [{"parentId":null,"name":"خانه","title":null,"id":1},{"parentId":null,"name":"اجتماعی","title":null,"id":2},{"parentId":2,"name":"اجتماعی بچه","title":null,"id":3},{"parentId":3,"name":"0","title":null,"id":4},{"parentId":null,"name":"aswddfd","title":null,"id":5},{"parentId":2,"name":"test","title":null,"id":7},{"parentId":null,"name":"01","title":null,"id":9}];
-
-    Event.subscribe('FOLDERS_TREEVIEW_UPDATED', function () {
+    Event.subscribe('FOLDERS_TREEVIEW_UPDATED', function () { 
       getFoldersList();
-
       // TODO: It should be in another place
       if (Dialog) {
         Dialog.close();
       }
     });
-    $scope.selectedNode;
 
-    if (vm.initialFolderId) {
-      vm.folderId = parseInt(vm.initialFolderId);
-      getFiles();
-    }
-
+    // if (vm.initialFolderId) {
+    //   vm.folderId = parseInt(vm.initialFolderId);
+    //   getFiles();
+    // }
+    $scope.selectedNode = vm.selectedNode;
     $scope.$watch('selectedNode', function (node) {
+      
+      console.log($scope.selectedNode);
+      
       if (node) {
         vm.folderId = node.id;
         vm.folderName = node.Name;
@@ -200,7 +216,7 @@
       var id = vm.selectedFile.id;
       FilesRest.one(id).remove().then(function () {
         getFiles();
-     //   toastr.success('فایل با موفقیت حذف شد', 'انجام شد!');
+       alert('فایل با موفقیت حذف شد', 'انجام شد!');
       });
       vm.selectedFile = null;
     }
@@ -217,7 +233,7 @@
           controllerAs: 'FileManagerRemoveFolderViewModel'
         });
       } else {
-      //  toastr.error('فولدری برای حذف انتخاب نشده است', 'انجام نشد!');
+       alert('فولدری برای حذف انتخاب نشده است', 'انجام نشد!');
       }
     }
 
@@ -232,6 +248,19 @@
         })
       }
     }
+
+    vm.selectItem = function (file) {
+          file.selected = !file.selected;
+          if (file.selected) {
+            selectedMultiFile.push(file);
+            vm.selectedFiles.push(file);
+          } else {
+            selectedMultiFile.splice(selectedMultiFile.indexOf(file), 1);
+            vm.selectedFiles.splice(vm.selectedFiles.indexOf(file), 1);
+          }
+          //vm.selectedFile = selectedMultiFile[selectedMultiFile.length - 1];
+          vm.selectedFile = vm.selectedFiles[vm.selectedFiles.length - 1];
+        };
 
     function close() {
       vm.ngModel = _.filter(vm.files, function (file) {
