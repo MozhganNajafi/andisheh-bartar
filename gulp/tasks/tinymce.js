@@ -19,7 +19,7 @@ gulp.task('tinymce', function( callback ) {
 })
 
 gulp.task('tinymce.plugins', function() {
-  return gulp.src(paths.bower + '/tinymce/plugins/**/plugin.min.js')
+  return gulp.src([paths.bower + '/tinymce/plugins/**/plugin.min.js',paths.bower + '/tinymce/plugins/**/img/*.*'])
   .pipe(gulp.dest(paths.public + '/assets/tinymce/plugins'))
 });
 

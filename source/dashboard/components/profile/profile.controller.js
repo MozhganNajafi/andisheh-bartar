@@ -4,9 +4,9 @@
 
     angular
         .module('DashboardApplication')
-        .controller('ProfileController', ['PersonalInfoRest', ProfileController]);
+        .controller('ProfileController', ['PersonalInfoRest','FilesRest', ProfileController]);
 
-    function ProfileController(PersonalInfoRest) {
+    function ProfileController(PersonalInfoRest,FilesRest) {
 
         var vm = this;
         function getPersonalInfo() {
@@ -14,8 +14,13 @@
                 vm.introduction = response.data.introduction;
             })
         }
-
+        function setPic(){
+            FilesRest.one('GetProfile').getList().then(function (response) {
+                vm.pic = response.data.fileName;
+            })
+        }
         getPersonalInfo();
+        setPic();
 
 
     }

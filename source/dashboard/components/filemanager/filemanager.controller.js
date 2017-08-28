@@ -12,6 +12,7 @@
       TreeviewOptions.reset();
       TreeviewOptions.set(vm.options);
       vm.treeOptions = TreeviewOptions.get();
+      vm.setProfile = setProfile;
         // $scope.folders = [];
       // vm.selectNode = function( node ) {
       //   vm.selectedNode = node;
@@ -29,6 +30,7 @@
       vm.removeFile = removeFile;
       vm.removeFolder = removeFolder;
       vm.selectAll = selectAll;
+      vm.openRenameFilePopup = openRenameFilePopup;
 
     function getFoldersList() {
       FoldersRest.getList().then(function (response) {
@@ -212,6 +214,47 @@
       }
     }
 
+    function openRenameFilePopup() {
+      vm.fileId = vm.selectedFile.id;
+      if (vm.fileId) {
+        FilesRest.one(vm.fileId).get().then(function (response) {
+          vm.response = response;
+          vm.file = response.entity.data;
+          vm.fileName = vm.file.name.split(".")[0];
+
+          Dialog.open({
+            template: 'dashboard/components/filemanager/templates/renameFile.html',
+            width: '30%',
+            data: {
+              fileId: vm.fileId,
+              file: vm.file,
+              response: vm.response,
+              fileName: vm.fileName,
+              fileApi: vm.fileApiResponse,
+            },
+            controller: 'FileManagerRenameFileController',
+            controllerAs: 'FileManagerRenameFileViewModel'
+          });
+          $scope.$on('ngDialog.closed', function (e) {
+            getFiles();
+          });
+        });
+      } else {
+        alert('فایلی برای تغییر نام انتخاب نشده است', 'انجام نشد!');
+      }
+    }
+
+    function setProfile(){
+      var id = vm.selectedFile.id;
+      FilesRest.one('SetProfile').customPUT(null, null,{'id':id}).then(function (response) {
+        if (response.succeeded) {
+          alert('تصویر پروفایل با موفقیت انتخاب شد');
+          vm.updateMode = false;
+          vm.selectedId = null;
+        }
+      });
+    }
+
     function removeFile() {
       var id = vm.selectedFile.id;
       FilesRest.one(id).remove().then(function () {
@@ -220,6 +263,7 @@
       });
       vm.selectedFile = null;
     }
+
 
     function removeFolder() {
       if (vm.folderId) {

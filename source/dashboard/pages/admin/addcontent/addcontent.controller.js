@@ -17,7 +17,7 @@
       categoryId: '',
       keywords: '',
       AuthorId: 1,
-      Labels: []
+      labels: []
     };
 
 
@@ -72,16 +72,19 @@
     getCategories();
 
     function save() {
-
-      vm.content.labels.forEach(function(element) {
+      if(vm.content.labels[0]){
+        vm.content.labels.forEach(function(element) {
         vm.tags.push(element.text)
       }, this);
+      }
+      
       var newArticle = {
         subject: vm.content.subject,
         body: vm.content.body,
         categoryId: vm.content.categoryId,
         keywords: vm.content.keywords,
         createDate: vm.content.submitDate,
+        highlight: vm.content.highlight,
         AuthorId: 1,
         labels: vm.tags
       };

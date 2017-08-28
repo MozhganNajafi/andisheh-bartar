@@ -40,7 +40,8 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/home/home.controller.js',
-              '/dashboard/pages/home/home.css'
+              '/dashboard/pages/home/home.css',
+              '/bower_components/angular-paging/dist/paging.js',
               
             ]);
           }]

@@ -34,8 +34,8 @@ div(ng-if="EditContentViewModel.updateMode")
     .small-12.large-6.columns
       div
         span گروه خبر
-        select(ng-model='EditContentViewModel.selectedItem.categoryId')
-          option(ng-repeat="category in EditContentViewModel.categories" value="{{category.id}}") {{category.name}}
+        select(ng-model='EditContentViewModel.selectedItem.categoryId',ng-options="obj.id as obj.name for obj in EditContentViewModel.categories")
+          
   .row
     .small-12.columns.large-6.columns
       div
@@ -51,6 +51,12 @@ div(ng-if="EditContentViewModel.updateMode")
   //-     div
   //-       span خلاصه خبر
   //-       textarea(ui-tinymce="EditContentViewModel.tinymceOptions", ng-model="EditContentViewModel.abstract")
+  
+  .row
+    .small-12.large-12.columns
+      div
+        span خلاصه خبر
+        input(type='text', ng-model="EditContentViewModel.selectedItem.highlight")
   .row
     .small-12.large-12.columns
       div

@@ -20,8 +20,9 @@
         .small-12.large-2.columns
             p &nbsp;
     .row.expanded.logo-bar
-        .small-12.large-4.columns
-            img(src='assets/images/logo/logo-fa.png')
+        a(href="#!/dashboard/home")
+            .small-12.large-4.columns
+                img(src='assets/images/logo/logo-fa.png')
         .small-12.large-5.columns.search-bar
             .small-12.large-6.columns
                     p &nbsp;
@@ -30,17 +31,18 @@
                     input.input-group-field(type='text',ng-model='TopMenuViewModel.keyword')
                     span.input-group-label(ng-click='TopMenuViewModel.search(TopMenuViewModel.keyword)')
                         i.fa.fa-search(aria-hidden=true)
-        .small-12.large-3.columns
-            img(src='assets/images/logo/logo-en.png')
+        a(href="#!/dashboard/home")
+            .small-12.large-3.columns
+                img(src='assets/images/logo/logo-en.png')
                 
     .row
         .small-12.columns
             ul.menu.align-right
                 li
-                    a(href="#/dashboard/home",ng-click="TopMenuViewModel.search(undefined)") صفحه نخست
+                    a(href="#!/dashboard/home",ng-click="TopMenuViewModel.search(undefined)") صفحه نخست
                 li
-                    a(href="#/dashboard/about") درباره ما
+                    a(href="#!/dashboard/about") درباره ما
                 li
-                    a(href="#/dashboard/contact") تماس با ما
+                    a(href="#!/dashboard/contact") تماس با ما
                 //- li
                 //-     a(href="#/login") ورود

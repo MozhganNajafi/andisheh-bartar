@@ -15,6 +15,10 @@
       if (operation === 'getList') {
         newResponse.data = response.data.entity.data;
         newResponse.headers = response.data.entity.headers;
+        
+        if (response.data.entity.searchRequest) {
+          newResponse.searchRequest = response.data.entity.searchRequest;
+        }
         if (response.data.entity.actions) {
           newResponse.actions = response.data.entity.actions;
         }

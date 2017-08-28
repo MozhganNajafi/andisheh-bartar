@@ -11,7 +11,7 @@
             .row
               .small-12.large-6.columns
                 br
-                small گروه {{news.categoryName}}
+                small(ng-if='news.categoryName') گروه {{news.categoryName}}
               .small-12.large-6.columns
                 small.float-left {{news.submitDate}}
                 br
@@ -21,7 +21,8 @@
               .small-12.columns
                 p {{news.body | htmlToPlaintext | limitTo:400}}
             .row
-              small(ng-repeat='label in news.labels') برچسب ها : 
+              small(ng-if='news.labels[0]') برچسب ها :
+              small(ng-repeat='label in news.labels')  
                 span {{label.name}} ,
             br    
 
@@ -29,3 +30,7 @@
               .small-12.columns
                 button.button.primary(type='button',ng-click='HomeViewModel.redirect(news.id)',target='_blank') ادامه مطلب
 
+  paging(page="HomeViewModel.pageIndex" ,page-size="HomeViewModel.pageSize" ,total="HomeViewModel.total",show-prev-next="true",show-first-last="true",ng-click='HomeViewModel.getPageIndex()',class="text-center")
+
+
+    

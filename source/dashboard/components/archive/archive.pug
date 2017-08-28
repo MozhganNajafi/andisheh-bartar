@@ -7,5 +7,6 @@
         ul
             
             li(ng-repeat='item in ArchiveViewModel.archive')
-                a(ng-click='ArchiveViewModel.search(item.value)') {{item.key}}
+                small
+                    a(ng-click='ArchiveViewModel.search(item.value)') {{item.key}}
                 

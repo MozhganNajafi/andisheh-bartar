@@ -7,4 +7,4 @@
         ul
             li(ng-repeat='article in RecentArticlesViewModel.articles')
                 a(ng-click="RecentArticlesViewModel.redirect(article.id)")
-                    span {{article.subject}}
+                    small {{article.subject}}

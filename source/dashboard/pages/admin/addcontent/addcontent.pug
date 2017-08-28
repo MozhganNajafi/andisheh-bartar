@@ -26,12 +26,11 @@
       div
         span تاریخ خبر
         adm-dtp(ng-model='AddContentViewModel.content.submitDate', options='{calType: "jalali", format: "YYYY/MM/DD"}')
-
-  //- .row
-  //-   .small-12.large-12.columns
-  //-     div
-  //-       span خلاصه خبر
-  //-       textarea(ui-tinymce="AddContentViewModel.tinymceOptions", ng-model="AddContentViewModel.abstract")
+  .row
+    .small-12.large-12.columns
+      div
+        span خلاصه خبر
+        input(type='text', ng-model="AddContentViewModel.content.highlight")
   .row
     .small-12.large-12.columns
       div

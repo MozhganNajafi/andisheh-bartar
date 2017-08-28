@@ -19,7 +19,7 @@
         'keyword': keyword
       };
       SearchRest.getList(param).then(function (response) {
-        $scope.$parent.news = response.data;
+        $scope.$parent.response = response;
       });
     }
 

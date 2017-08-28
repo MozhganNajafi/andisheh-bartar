@@ -1,0 +1,8 @@
+div
+  h6 تغییر نام فایل
+  hr(size=1)
+  form
+    label(for='rename') نام جدیدی برای فایل مورد نظر انتخاب کنید 
+    input#rename(type='text', ng-model='FileManagerRenameFileViewModel.fileName')
+
+    button.button(ng-click='FileManagerRenameFileViewModel.renameFile()') تغییر نام
