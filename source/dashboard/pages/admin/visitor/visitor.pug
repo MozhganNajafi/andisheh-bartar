@@ -1,43 +1,13 @@
-//- .visitor.margin-xxlarge
-//-     .title
-//-         div
-//-             h5 آمار بازدید
-//-         hr
-//-     .body
-//-         div.color
-//-             i.fa.fa-arrow-left
-//-             small کل بازدید : {{VisitorViewModel.visitors.allViewer}}
-//-         div.color 
-//-             i.fa.fa-arrow-left
-//-             small بازدید امروز : {{VisitorViewModel.visitors.todayViewer}}
-//-         div.color 
-//-             i.fa.fa-arrow-left
-//-             small بازدید دیروز : {{VisitorViewModel.visitors.yesterDayViewer}}
-//-         div.color
-//-             i.fa.fa-arrow-left
-//-             small بازدید این ماه : {{VisitorViewModel.visitors.currentMonthViewer}}
-//-         div.color 
-//-             i.fa.fa-arrow-left
-//-             small بازدید ماه قبل : {{VisitorViewModel.visitors.previousMonthViewer}}
-//-         div.color 
-//-             i.fa.fa-arrow-left
-//-             small تعداد کل پست ها : {{VisitorViewModel.visitors.countNews}}
-//-         div.color 
-//-             i.fa.fa-arrow-left
-//-             small زمان آخرین بازدید : {{VisitorViewModel.visitors.lastView}}
-//-         div.color 
-//-             i.fa.fa-arrow-left
-//-             small زمان آخرین پست : {{VisitorViewModel.visitors.lastEdit}}
 
 
 
-
-
-.padding-xxlarge.margin-xxlarge.comments
-
+.visitorAdmin
   .row
-    .small-12.large-8.columns
-      table.table.table-striped(st-table='VisitorViewModel.visitors')
+    .small-12.columns
+      p &nbsp;
+  .row
+    .small-12.large-12.columns
+      table.table.text-center.table-striped(st-table='VisitorViewModel.visitors')
         thead
         tr
             th کل بازدید
@@ -58,3 +28,7 @@
           td {{VisitorViewModel.visitors.countNews}}
           td {{VisitorViewModel.visitors.lastView}}
           td {{VisitorViewModel.visitors.lastEdit}}
+  //- angular-chart(options="VisitorViewModel.options" ,instance="VisitorViewModel.instance")
+  .row(ng-if="VisitorViewModel.chart")
+    canvas(class="chart chart-line", chart-data="VisitorViewModel.data", chart-labels="VisitorViewModel.labels",
+    chart-series="VisitorViewModel.series", chart-click="VisitorViewModel.onClick") 

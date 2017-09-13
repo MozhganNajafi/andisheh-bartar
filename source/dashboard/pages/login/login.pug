@@ -6,14 +6,14 @@
                     h4.login-title ورود به پنل مدیریت
                     label(ng-class="{'is-invalid-label': loginForm.email.$invalid && !loginForm.email.$pristine }")
                         | ایمیل
-                        input(type="email", name="email", ng-model="login.email", ng-class="{'is-invalid-input': loginForm.email.$invalid && !loginForm.email.$pristine }", ng-required="true")
+                        input(type="email", name="email", ng-model="LoginViewModel.email", ng-class="{'is-invalid-input': loginForm.email.$invalid && !loginForm.email.$pristine }", ng-required="true")
                     label(ng-class="{'is-invalid-label': loginForm.password.$invalid && !loginForm.password.$pristine }")
                         | رمز عبور
-                        input(type="password", name="password", ng-model="login.password", ng-minlength="8", ng-class="{'is-invalid-input': loginForm.password.$invalid && !loginForm.password.$pristine }", ng-required="true")
-                    input(type="checkbox")
-                    label مرا به خاطر بسپار
+                        input(type="password", name="password", ng-model="LoginViewModel.password", ng-minlength="8", ng-class="{'is-invalid-input': loginForm.password.$invalid && !loginForm.password.$pristine }", ng-required="true")
+                    //- input(type="checkbox")
+                    //- label مرا به خاطر بسپار
                     p.text-center
-                        button.button.login-action(type="submit", ng-click="login.login(login.email, login.password)", ng-disabled="loginForm.$invalid") ورود
+                        button.button.login-action(type="submit", ng-click="LoginViewModel.login(LoginViewModel.email, LoginViewModel.password)", ng-disabled="loginForm.$invalid") ورود
                     div.login-errors
                         p(ng-if="loginForm.email.$invalid && !loginForm.email.$pristine")
                             i.fa.fa-exclamation-triangle

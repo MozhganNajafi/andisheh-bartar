@@ -1,14 +1,20 @@
 .comment
+form(name="myForm",novalidate)
     .row
         .small-12.large-5.column
             div
                 span نام
-                input(type='text',ng-model='CommentViewModel.comment.name')
+                input(type='text',name="user",ng-model='CommentViewModel.comment.name',required)
+                span(style="color:red", ng-show="myForm.user.$dirty && myForm.user.$invalid")
+                    span(ng-show="myForm.user.$error.required") وارد کردن نام ضروری است
     .row
         .small-12.large-5.column
             div
                 span پست الکترونیک
-                input(type='email',ng-model='CommentViewModel.comment.email',placeholder='info@mail.com')
+                input(type="email", name="email", ng-model="CommentViewModel.comment.email",required)
+                span(style="color:red", ng-show="myForm.email.$dirty && myForm.email.$invalid")
+                    span(ng-show="myForm.email.$error.required") وارد کردن ایمیل ضروری است 
+                    span(ng-show="myForm.email.$error.email") فرمت ایمیل صحیح نمی باشد
     .row
         .small-12.large-5.column
             div
@@ -18,7 +24,9 @@
         .small-12.large-5.columns
             div
                 span نظر
-                textarea(ng-model='CommentViewModel.comment.context',placeholder='متن مورد نظر')
+                textarea(ng-model='CommentViewModel.comment.context', name="context",placeholder='متن مورد نظر',required)
+                span(style="color:red", ng-show="myForm.context.$dirty && myForm.context.$invalid")
+                    span(ng-show="myForm.context.$error.required") وارد کردن متن نظر ضروری است
     .row
         .small-12.large-3.column
-            button.button.primary(type='button',ng-click='CommentViewModel.add()') ارسال
+            input.button.primary(type='submit',ng-click='CommentViewModel.add()', ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid || myForm.context.$dirty && myForm.context.$invalid")

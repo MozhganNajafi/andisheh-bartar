@@ -208,7 +208,9 @@
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css',
               '/bower_components/ng-tags-input/ng-tags-input.css', 
-              '/bower_components/ng-tags-input/ng-tags-input.js',          
+              '/bower_components/ng-tags-input/ng-tags-input.js', 
+              '/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css',         
               // '/bower_components/ngMask/dist/ngMask.min.js'    
             ]);
           }]
@@ -232,7 +234,9 @@
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.js', 
               '/bower_components/adm-dtp/dist/ADM-dateTimePicker.css',
               '/bower_components/ng-tags-input/ng-tags-input.css', 
-              '/bower_components/ng-tags-input/ng-tags-input.js',                
+              '/bower_components/ng-tags-input/ng-tags-input.js',  
+              '/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css',               
               // '/bower_components/ngMask/dist/ngMask.min.js'                   
             ]);
           }]
@@ -250,7 +254,9 @@
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/link/link.controller.js',
-              '/dashboard/pages/admin/link/link.css'           
+              '/dashboard/pages/admin/link/link.css',
+              '/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css',            
             ]);
           }]
         },
@@ -268,7 +274,9 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/comment/view/comment.controller.js',
               '/dashboard/pages/admin/comment/view/comment.css',
-              '/dashboard/pages/admin/comment/comment.rest.services.js'
+              '/dashboard/pages/admin/comment/comment.rest.services.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css', 
             ]);
           }]
         },
@@ -287,7 +295,9 @@
             return $ocLazyLoad.load([
               '/dashboard/pages/admin/comment/details/comment-details.controller.js',
               '/dashboard/pages/admin/comment/details/comment-details.css',
-              '/dashboard/pages/admin/comment/comment.rest.services.js'
+              '/dashboard/pages/admin/comment/comment.rest.services.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css', 
             ]);
           }]
         },
@@ -304,10 +314,24 @@
         controllerAs: 'VisitorViewModel',
         resolve: {
           controller: ['$ocLazyLoad', function ($ocLazyLoad) {
-            return $ocLazyLoad.load([
+            return $ocLazyLoad.load({
+              serie: true,
+              files:[
+              '/bower_components/chart.js/dist/Chart.js', 
+              '/bower_components/chart.js/dist/Chart.min.js',
+              '/bower_components/angular-chart.js/dist/angular-chart.js', 
+              '/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css', 
               '/dashboard/pages/admin/visitor/visitor.controller.js',
-              '/dashboard/pages/admin/visitor/visitor.css'
-            ]);
+              '/dashboard/pages/admin/visitor/visitor.css',
+              // '/bower_components/c3/c3.css',
+              // '/bower_components/d3/d3.js',
+              // '/bower_components/c3/c3.js', 
+              // '/bower_components/angular-chart/angular-chart.js', 
+              
+              
+            ]})
+            
           }]
         },
         ncyBreadcrumb: {
@@ -349,7 +373,8 @@
               '/bower_components/angular-tree-control/css/tree-control.css',
               '/bower_components/angular-tree-control/angular-tree-control.js',
               '/bower_components/ng-file-upload/ng-file-upload.js',
-              '/bower_components/ng-file-upload-shim/ng-file-upload-shim.js'
+              '/bower_components/ng-file-upload-shim/ng-file-upload-shim.js','/bower_components/angular-loading-bar/build/loading-bar.js',
+              '/bower_components/angular-loading-bar/build/loading-bar.css', 
             ]);
           }]
         },

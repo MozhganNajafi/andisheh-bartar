@@ -3,8 +3,8 @@
     .small-12.columns
       p &nbsp;
   .row
-    .small-12.large-6.columns
-      table.table.table-striped(st-table='EditContentViewModel.news')
+    .small-12.large-12.columns
+      table.table.text-center.table-striped(st-table='EditContentViewModel.news')
         thead
         tr
           th شناسه
@@ -28,7 +28,7 @@ div(ng-if="EditContentViewModel.updateMode")
   .row
     .small-12.large-6.columns
       div
-        span عنوان خبر
+        span عنوان خبر*
         input(type='text', ng-model='EditContentViewModel.selectedItem.subject')
 
     .small-12.large-6.columns
@@ -40,7 +40,7 @@ div(ng-if="EditContentViewModel.updateMode")
     .small-12.columns.large-6.columns
       div
         span برچسب
-        tags-input(ng-model="EditContentViewModel.selectedItem.labels",style="height:50px")
+        tags-input(ng-model="EditContentViewModel.selectedItem.labels",style="height:50px", add-on-comma="false")
 
     .small-12.columns.large-6.columns
       div
@@ -55,12 +55,12 @@ div(ng-if="EditContentViewModel.updateMode")
   .row
     .small-12.large-12.columns
       div
-        span خلاصه خبر
+        span خلاصه خبر*
         input(type='text', ng-model="EditContentViewModel.selectedItem.highlight")
   .row
     .small-12.large-12.columns
       div
-        span متن خبر
+        span متن خبر*
         textarea(ui-tinymce="EditContentViewModel.tinymceOptions", ng-model="EditContentViewModel.selectedItem.body")
         
   .row

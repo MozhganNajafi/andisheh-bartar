@@ -26,11 +26,13 @@
         .small-12.large-5.columns.search-bar
             .small-12.large-6.columns
                     p &nbsp;
-            .small-12.large-6.columns
-                .input-group
-                    input.input-group-field(type='text',ng-model='TopMenuViewModel.keyword')
-                    span.input-group-label(ng-click='TopMenuViewModel.search(TopMenuViewModel.keyword)')
-                        i.fa.fa-search(aria-hidden=true)
+            form(ng-submit="TopMenuViewModel.search(TopMenuViewModel.keyword)")
+                .small-12.large-6.columns
+                    .input-group
+                        input.input-group-field(type='text',ng-model='TopMenuViewModel.keyword')
+                        span.input-group-label(ng-click='TopMenuViewModel.search(TopMenuViewModel.keyword)')
+                            i.fa.fa-search(aria-hidden=true)
+                    input(type="submit",style="position: absolute; left: -9999px")
         a(href="#!/dashboard/home")
             .small-12.large-3.columns
                 img(src='assets/images/logo/logo-en.png')
@@ -44,5 +46,5 @@
                     a(href="#!/dashboard/about") درباره ما
                 li
                     a(href="#!/dashboard/contact") تماس با ما
-                //- li
-                //-     a(href="#/login") ورود
+                li
+                    a(href="#!/login") ورود

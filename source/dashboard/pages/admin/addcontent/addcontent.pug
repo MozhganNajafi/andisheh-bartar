@@ -5,7 +5,7 @@
   .row
     .small-12.large-6.columns
       div
-        span عنوان خبر
+        span عنوان خبر*
         input(type='text', ng-model='AddContentViewModel.content.subject')
 
     
@@ -15,13 +15,12 @@
         span گروه خبر
         select(ng-model='AddContentViewModel.content.categoryId',
         ng-options="category.id as category.name for category in AddContentViewModel.categories")
-          option(value="") -- گروه خبری را وارد کنید --
 
   .row
     .small-12.large-6.columns
       div
         span برچسب
-        tags-input(ng-model="AddContentViewModel.content.labels",style="height:50px")
+        tags-input(ng-model="AddContentViewModel.content.labels",style="height:50px", add-on-comma="false")
     .small-12.large-4.columns
       div
         span تاریخ خبر
@@ -29,12 +28,12 @@
   .row
     .small-12.large-12.columns
       div
-        span خلاصه خبر
+        span خلاصه خبر*
         input(type='text', ng-model="AddContentViewModel.content.highlight")
   .row
     .small-12.large-12.columns
       div
-        span متن خبر
+        span متن خبر*
         textarea(ui-tinymce="AddContentViewModel.tinymceOptions", ng-model="AddContentViewModel.content.body", id="editor")
   .row
     .small-12.large-6.columns

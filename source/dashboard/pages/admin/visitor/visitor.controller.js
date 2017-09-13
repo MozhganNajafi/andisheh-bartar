@@ -9,7 +9,9 @@
   function VisitorController(LogRest) {
 
     var vm = this;
-
+    vm.data = [];
+    vm.labels = [];
+    vm.chart = false;
     function getVisitor(){
       LogRest.getList().then(function (response) {
         vm.visitors = response.data;
@@ -17,58 +19,41 @@
       })
     }
     getVisitor();
-    // vm.link = {};
-    // vm.updateMode = false;
-    // vm.update = update;
-    // vm.save = save;
-    // vm.cancel = cancel;
-    // vm.remove = remove;
-
-
-    // function getLinks() {
-    //   LinkRest.getList({
-    //     pagesize: 0
-    //   }).then(function (response) {
-    //     vm.links = response.data;
-    //   });
-    // }
-    // getLinks();
-
-    // function update(id) {
-    //   vm.updateMode = true;
-    //   vm.selectedId = id;
-    //   LinkRest.one(id).get().then(function (response) {
-    //     var selectedLink = response.entity.data;
-    //     vm.link.name = selectedLink.name;
-    //     vm.link.url = selectedLink.url;
-    //   });
-    // }
-
-    // function save() {
-    //   if (vm.updateMode) {
-    //     LinkRest.one(vm.selectedId).customPUT(vm.link).then(function () {
-    //       alert('ویرایش با موفقیت انجام شد');
-    //       getLinks();
-    //     });
-    //   } else {
-    //     LinkRest.post(vm.link).then(function () {
-    //       alert('ثبت با موفقیت انجام شد');
-    //       getLinks();
-    //     });
+    function chartData(){
+      LogRest.one('GetLastTen').getList().then(function (response) {
+        vm.log = response.data;
+        vm.log.forEach(function(element) {
+          vm.data.push(element.value);
+          vm.labels.push(element.key);
+          vm.chart = true;
+          
+        }, this);
+    //      vm.options = {
+    //   data: vm.data,
+    //   dimensions: {
+    //     key: {
+    //       axis: 'x'
+    //     },
+    //     value: {
+    //       axis: 'y'
+    //     }
     //   }
-    //   vm.link = {};
-    // }
+    // };
+    
+    // // optional (direct access to c3js API http://c3js.org/reference.html#api) 
+    // vm.instance = null;
+  //   vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  // vm.series = ['Series A', 'Series B'];
+  // vm.data = [
+  //   [65, 59, 80, 81, 56, 55, 40]
+  // ];
+  vm.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+      })
+    }
+    chartData();
 
-    // function cancel() {
-    //   vm.updateMode = false;
-    //   vm.link = {};
-    // }
 
-    // function remove(id) {
-    //   LinkRest.one(id).remove().then(function () {
-    //     alert('حذف با موفقیت انجام شد');
-    //     getLinks();
-    //   })
-    // }
   }
 })();

@@ -1,8 +1,10 @@
-.padding-xxlarge.margin-xxlarge.CommentDetails
-
+.comment-details
   .row
-    .small-12.large-8.columns
-      table.table.table-striped(st-table='CommentDetailsViewModel.comments')
+    .small-12.columns
+      p &nbsp;
+  .row
+    .small-12.large-12.columns
+      table.table.text-center.table-striped(st-table='CommentDetailsViewModel.comments')
         thead
         tr
           th نام نظردهنده
@@ -12,28 +14,75 @@
           th تایید
           th تغییر وضعیت تایید
           th حذف
-        tbody
-        tr.body(ng-repeat='item in CommentDetailsViewModel.comments')
-          td {{item.name}}
-          td {{item.email}}
-          td {{item.context}}
-          td 
-            div(ng-if="!item.isPrivate")
-              i.fa.fa-times.alert
-            div(ng-if="item.isPrivate")
-              i.fa.fa-check.primary
-          td 
-            div(ng-if="!item.isConfirm")
-              i.fa.fa-times.alert
-            div(ng-if="item.isConfirm")
-              i.fa.fa-check.primary
-          td
-            div(ng-if="item.isConfirm")
-                button.alert.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
-                    i.fa.fa-times.white رد
-            div(ng-if="!item.isConfirm")
-                button.primary.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
-                    i.fa.fa-check.white تایید
-          td
-            a(ng-click='CommentDetailsViewModel.remove(item.id)')
-              i.fa.fa-trash
+          th پاسخ
+        tbody(ng-repeat='item in CommentDetailsViewModel.comments')
+          tr.body
+            td {{item.name}}
+            td {{item.email}}
+            td {{item.context}}
+            td 
+              div(ng-if="!item.isPrivate")
+                i.fa.fa-times.alert
+              div(ng-if="item.isPrivate")
+                i.fa.fa-check.primary
+            td 
+              div(ng-if="!item.isConfirm")
+                i.fa.fa-times.alert
+              div(ng-if="item.isConfirm")
+                i.fa.fa-check.primary
+            td
+              div(ng-if="item.isConfirm")
+                  button.alert.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
+                      i.fa.fa-times.white رد
+              div(ng-if="!item.isConfirm")
+                  button.primary.button(ng-click='CommentDetailsViewModel.update(item.id, item.isConfirm)')
+                      i.fa.fa-check.white تایید
+            td
+              a(ng-click='CommentDetailsViewModel.remove(item.id)')
+                i.fa.fa-trash
+                
+            td
+              a(ng-click='CommentDetailsViewModel.enableReply(item.id,item.newsId)')
+                i.fa.fa-reply
+          tr(ng-repeat='item2 in item.child',ng-if="item.child[0]",style="border-right: 50px solid rgb(248, 248, 248);")
+            td {{item2.name}}
+            td {{item2.email}}
+            td {{item2.context}}
+            td 
+              div(ng-if="!item2.isPrivate")
+                i.fa.fa-times.alert
+              div(ng-if="item2.isPrivate")
+                i.fa.fa-check.primary
+            td 
+              div(ng-if="!item2.isConfirm")
+                i.fa.fa-times.alert
+              div(ng-if="item2.isConfirm")
+                i.fa.fa-check.primary
+            td
+              div(ng-if="item2.isConfirm")
+                  button.alert.button(ng-click='CommentDetailsViewModel.update(item2.id, item2.isConfirm)')
+                      i.fa.fa-times.white رد
+              div(ng-if="!item2.isConfirm")
+                  button.primary.button(ng-click='CommentDetailsViewModel.update(item2.id, item2.isConfirm)')
+                      i.fa.fa-check.white تایید
+            td
+              a(ng-click='CommentDetailsViewModel.remove(item2.id)')
+                i.fa.fa-trash
+                
+            //- td
+            //-   a(ng-click='CommentDetailsViewModel.enableReply(item2.id)')
+            //-     i.fa.fa-reply
+  .row(ng-if = 'CommentDetailsViewModel.enableReplyVal' )
+    .row
+      .small-12.large-12.columns
+        div
+          span پاسخ
+          input(type='text', ng-model="CommentDetailsViewModel.selectedItem.reply")
+    .row
+      .small-12.large-6.columns
+        .small-12.large-6.columns
+          button.button(type='button', ng-click='CommentDetailsViewModel.save()') ذخیره
+        .small-12.large-6.columns
+          button.button(type='button', ng-click='CommentDetailsViewModel.cancel()') انصراف
+  
+              

@@ -9,6 +9,7 @@
     var vm = this;
     vm.comment = {};
     vm.comment.context = vm.comment.name = vm.comment.email = '';
+    vm.comment.isPrivate = false;
     vm.add = add;
     vm.getComment = getComments;
 
@@ -21,14 +22,21 @@
         context: vm.comment.context,
         newsId: $scope.newsId
       };
-      if (vm.comment.context == '' || vm.comment.name == '') {
-        alert('لطفا همه موارد را وارد نمایید');
-      } else {
-        CommentRest.post(newComment).then(function () {
+        if(vm.comment.email == '' || vm.comment.context == '' || vm.comment.name == '' ){
+          alert('لطفا همه موارد را وارد کنید');
+        }
+        // else if(!vm.comment.postEmail.$valid){
+        // alert('فرمت ایمیل صحیح نمیباشد');
+        // }
+        // else if(vm.comment.postEmail.$valid && vm.comment.postEmail !=="" || vm.comment.postEmail !== undefined){
+          else{
+            CommentRest.post(newComment).then(function () {
           alert('نظر شما با موفقیت ثبت شد.!');
           vm.comment = {};
         });
-      }
+          }
+          
+      // }
     }
 
     function getComments() {

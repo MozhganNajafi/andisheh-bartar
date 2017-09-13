@@ -29,7 +29,7 @@
       vm.openRenamePopup = openRenamePopup;
       vm.removeFile = removeFile;
       vm.removeFolder = removeFolder;
-      vm.selectAll = selectAll;
+      // vm.selectAll = selectAll;
       vm.openRenameFilePopup = openRenameFilePopup;
 
     function getFoldersList() {
@@ -281,29 +281,42 @@
       }
     }
 
-    function selectAll() {
-      if (vm.files.length > 0) {
-        vm.files.forEach(function (file) {
-          file.selected = !file.selected;
-          if (file.selected)
-            vm.selectedFiles.push(file);
-          else
-            vm.selectedFiles.splice(vm.selectedFiles.indexOf(file), 1);
-        })
-      }
-    }
+    // function selectAll() {
+    //   if (vm.files.length > 0) {
+    //     vm.files.forEach(function (file) {
+    //       file.selected = !file.selected;
+    //       if (file.selected)
+    //         vm.selectedFiles.push(file);
+    //       else
+    //         vm.selectedFiles.splice(vm.selectedFiles.indexOf(file), 1);
+    //     })
+    //   }
+    // }
 
     vm.selectItem = function (file) {
-          file.selected = !file.selected;
-          if (file.selected) {
-            selectedMultiFile.push(file);
-            vm.selectedFiles.push(file);
-          } else {
-            selectedMultiFile.splice(selectedMultiFile.indexOf(file), 1);
-            vm.selectedFiles.splice(vm.selectedFiles.indexOf(file), 1);
+          
+          if(vm.selectedFile ){
+            if(vm.selectedFile == file){
+              vm.selectedFile.selected = !vm.selectedFile.selected;
+              vm.selectedFile = []; 
+            } 
+            else{
+              vm.selectedFile.selected = !vm.selectedFile.selected;
+              file.selected = !file.selected
+              vm.selectedFile = []; 
+              vm.selectedFile = file;
+            }
           }
-          //vm.selectedFile = selectedMultiFile[selectedMultiFile.length - 1];
-          vm.selectedFile = vm.selectedFiles[vm.selectedFiles.length - 1];
+          else{
+            file.selected = !file.selected;
+          }
+          
+          if (file.selected) {
+            vm.selectedFile = file;
+          } else {
+            vm.selectedFile = [];
+            vm.selectedFiles = [];
+          }
         };
 
     function close() {
